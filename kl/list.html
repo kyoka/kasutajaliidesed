@@ -1,0 +1,318 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<title>Home page | iDELO</title>
+		
+		<meta charset="utf-8" />
+		<meta name="description" content="iDELO" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+		<!--<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>-->
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+		
+	</head>
+	
+<body>
+	
+    <div class="brand">iDELO</div>
+    	<div class="container">
+			<div class="navbar">
+  				<div class="navbar-inner">
+                <ul class="nav navbar-nav">
+                    <li><a id="navlink" href="home.html"><b>Home</b></a>
+                    </li>
+                    <li><a id="navlink" href="about.html"><b>About</b></a>
+                    </li>
+                    <li><a id="navlink" href="list.html"><b>Complaints List</b></a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">	
+					<li>
+						<form class="navbar-form navbar-right" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="butn">Submit</button>
+						</form>	
+					</li>
+					<li><a id="navlink" href="myprofile.html"><b>My profile</b></a>
+					</li>
+				</ul>	
+				</div>
+			</div>	
+		</div>
+		</div>
+	
+	<div id="listheader" class="row">
+	<div class="col-md-4">
+	<h5><b>List of citizens</b></h5>
+	</div>
+	<div class="col-md-4">
+	<h5><b>&nbsp&nbsp&nbspList of Complains</b></h5>
+	</div>
+	<div class="col-md-4">
+	<h5><button id="newCom" type="button" class="butn">Add New</button></h5>	
+	</div>	
+	</div>	
+	</br>
+
+	<div class="col-md-4" id="navcontainer">
+		<ul id="navlist">
+			<li><p class="listofname" data-toggle="modal" data-target="#BobBobsen">Bob Bobsen</a>	
+			</li>
+			<li><p class="listofname" data-toggle="modal" data-target="#DerpDerpson">Derp Derpson</a>
+			</li>
+			<li><p class="listofname" data-toggle="modal" data-target="#HerpHerpson">Herp Herpson</a>
+			</li>
+			<li><p class="listofname" data-toggle="modal" data-target="#TomThomson">Tom Thomson</a>
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-4" id="navcontainer">
+		<ul id="navlist">
+			<li><p class="listofname" data-toggle="modal" data-target="#complaint1">I got attacked</a>	
+			</li>
+			<li><p class="listofname" data-toggle="modal" data-target="#complaint2">Scammer</a>
+			</li>
+		</ul>
+	</div>
+
+<!----------------------------------------------------------LIST'S-MODAL------------------------------------------------------------------>
+	<div class="modal fade" id="BobBobsen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Bob Bobsen</h4>
+      </div>
+      <div class="modal-body">
+		  <table cellspacing="0">
+			  
+		  	<tr>
+				<td><p>Sex</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbspMale</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Birth date</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbsp01.01.90</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Aadress</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbspmiddle of nowhere 1</p></td>
+			</tr>
+		  </table>
+		  </br>
+		  <img class="foto" src="img/pic1.jpg">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	<div class="modal fade" id="DerpDerpson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Derp Derpson</h4>
+      </div>
+      <div class="modal-body">
+       <table cellspacing="0">
+			  
+		  	<tr>
+				<td><p>Sex</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbspMale</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Birth date</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbsp01.01.90</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Aadress</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbspmiddle of nowhere 1</p></td>
+			</tr>
+		  </table>
+		  </br>
+		  <img class="foto" src="img/pic2.png">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	<div class="modal fade" id="HerpHerpson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Herp Herpson</h4>
+      </div>
+      <div class="modal-body">
+       <table cellspacing="0">
+			  
+		  	<tr>
+				<td><p>Sex</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbspMale</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Birth date</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbsp01.01.90</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Aadress</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbspmiddle of nowhere 1</p></td>
+			</tr>
+		  </table>
+		  </br>
+		  <img class="foto" src="img/pic3.png">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+<div class="modal fade" id="TomThomson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Tom Thomson</h4>
+      </div>
+      <div class="modal-body">
+       <table cellspacing="0">
+			  
+		  	<tr>
+				<td><p>Sex</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbspMale</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Birth date</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbsp01.01.90</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Aadress</p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbspmiddle of nowhere 1</p></td>
+			</tr>
+		  </table>
+		  </br>
+		  <img class="foto" src="img/pic4.png">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+
+<!-------------------------------------------------------COMPLAINTS----------------------------------------------------------------------->
+
+<div class="modal fade" id="complaint2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Scammer</h4>
+      </div>
+      <div class="modal-body">
+       <table cellspacing="0">
+			  
+		  	<tr>
+				<td><p></p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbsp ??????</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p></p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbsp ??????</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p></p></td><td>&nbsp</td><td><p>&nbsp&nbsp&nbsp&nbsp&nbsp ??????</p></td>
+			</tr>
+		  </table>
+		  </br>
+		<div class="row">
+			<div id="mapcanvas">  
+		<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;q=Embassy+of+Iran&amp;cid=0xa0951df2a5935d23&amp;ie=UTF8&amp;hq=Embassy+of+Iran&amp;hnear=&amp;ll=34.528505,69.175009&amp;spn=0,0&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://www.google.com/maps?t=m&amp;q=Embassy+of+Iran&amp;cid=0xa0951df2a5935d23&amp;ie=UTF8&amp;hq=Embassy+of+Iran&amp;hnear=&amp;ll=34.528505,69.175009&amp;spn=0,0&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+		</div>
+		</div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="complaint1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Tom Thomson</h4>
+      </div>
+      <div class="modal-body">
+       <table cellspacing="0">
+			  
+		  	<tr>
+				<td><p>Complaint Header</p></td><td><p>&nbsp</p></td><td><p>I got attacked</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Type of complaint</p></td><td><p>&nbsp</p></td><td><p>#attack, #beatup, #injures</p></td>
+			</tr>
+
+		  	<tr>
+				<td><p>Date/Time</p></td><td><p>&nbsp</p></td><td><p>12/12/12 12:12:12</p></td>
+			</tr>
+		   <tr>
+				<td><p>Details</p></td><td><p>&nbsp</p></td><td><p>I was chillin' right around my way
+21st Eastside at a beach
+This lil' fool ran up on me
+Poppin' off wit his homies like he was a straight G
+
+Askin' where I'm from while he runnin' up
+Bang my sound, nag one of them
+Some things, son, they just don't change
+Fools don't respect nothin' but to *** bang</p></td>
+			</tr>
+		  </table>
+		  </br>
+		</div>
+		<div class="row">
+			<div id="mapcanvas">
+				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;sll=34.0485125,-118.2447313&amp;sspn=0.0068272,0.0109864&amp;q=198+E+3rd+St&amp;ie=UTF8&amp;hq=&amp;hnear=198+E+3rd+St,+Los+Angeles,+California+90013&amp;ll=34.048506,-118.244737&amp;spn=0.008801,0.01929&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://www.google.com/maps?t=m&amp;sll=34.0485125,-118.2447313&amp;sspn=0.0068272,0.0109864&amp;q=198+E+3rd+St&amp;ie=UTF8&amp;hq=&amp;hnear=198+E+3rd+St,+Los+Angeles,+California+90013&amp;ll=34.048506,-118.244737&amp;spn=0.008801,0.01929&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+		</div>  
+		</div>
+	  </div>
+	</div>
+</div>
+		  </br></br>
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+
+  
+	  
+<!---------------------------------------------------------------------------------------------------------------------------------------->	  
+	  
+   
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+
+
+<!------------------------------------------------------------------------------------------
+
+
+    <!-- JavaScript -->
+	
+    <script src="js/jquery.js"></script>
+	<script src="js/jquery.validate.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

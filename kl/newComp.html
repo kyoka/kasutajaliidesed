@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<title>Home page | iDELO</title>
+		
+		<meta charset="utf-8" />
+		<meta name="description" content="iDELO" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+		<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
+		<link href="css/main.css" rel="stylesheet" type="text/css">
+		
+	</head>
+	
+<body>
+	
+    <div class="brand">iDELO</div>
+	<h3>New Complaint</h3>
+    <div id="reg" class="container">
+		<form class="form-horizontal" id="newComp" method='post'>
+            <input type="text" class="form-control reg-input" id="comp-name" name="compH" placeholder="Complaint Header">
+            <input type="text" class="form-control reg-input" id="comp-name" name="compType" placeholder="Type of complaint">
+            <input type="text" class="form-control reg-input" id="comp-name" name="compDt"  placeholder="Date/Time">
+			<textarea type="text" name="compDet" cols="70" rows="3" placeholder="Details"></textarea>
+
+			<div class="controls">
+				<button type="submit" class="btn btn-success" >Submit</button>
+				<a href="index.html"><button type="button" class="btn btn-success">HOME</button></a>
+			</div>
+		</form>
+    </div>
+	
+    <!-- JavaScript -->
+    <script src="js/jquery.js"></script>
+	<script src="js/jquery.validate.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
