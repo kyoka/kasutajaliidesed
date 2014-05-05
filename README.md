@@ -1,2 +1,3 @@
 kasutajaliidesed
 ================
+python -m CGIHTTPServer
