@@ -1,62 +1,61 @@
 <!doctype html>
 
 <html lang="en">
-	<head>
-		<title>Home page | iDELO</title>
-		
-		<meta charset="utf-8" />
-		<meta name="description" content="iDELO" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
-		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-		<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
-		<link href="css/main.css" rel="stylesheet" type="text/css">
-		
-	</head>
-	
-<body>
-<!------	
-    <div class="brand">iDELO</div>
-    	<div class="container">
-			<div class="navbar">
-  				<div class="navbar-inner">
-                <ul class="nav navbar-nav">
-                    <li><a id="navlink" href="index.html"><b>Home</b></a>
-                    </li>
-                    <li><a id="navlink" href="about.html"><b>About</b></a>
-                    </li>
-                    <li><a id="navlink" href="list.html"><b>Complaints List</b></a>
-                </ul>
-				<form id="loginform" class="navbar-form navbar-right" role="form">
-                    <input id="signin-email" type="text" name="login" placeholder="Email" class="form-control"/>
-                    <input id="signin-password" type="password" name="pswd" placeholder="Password" class="form-control"/>
-                <button id="signin-submit" class="butn" value="log" type="button">Sign in</button>
-				<a href="registration.html"><button type="button" class="butn">Sign up</button></a>	
-            </form>
-	
-				</div>
-			</div>	
-		</div>				------>
-	
-    <div class="brand">iDELO</div>
-	<div class="scndBrand"><h3>Log-In</h3></div>
-    <div id="log" class="container">
-                <form id="loginform" role="form" action="/cgi-bin/login.py">
-                    <input id="signin-email" type="text" name="login" placeholder="Email" class="form-control"/>
-					</br>
-                    <input id="signin-password" type="password" name="pswd" placeholder="Password" class="form-control"/>
-					</br>
-                <button id="signin-submit" class="butn" value="log" type="submit">Sign in</button>
-				<a href="registration.html"><button type="button" class="butn">Sign up</button></a>	
-            	</form>
-    </div>
-	
-    <!-- JavaScript -->
-    <script src="js/jquery.js"></script>
-	<script src="js/jquery.validate.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+<head>
+    <title>Home page | iDELO</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="iDELO"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/bootstrap-responsive.css" type="text/css"/>
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
 
+</head>
+
+<body>
+<div class="brand">iDELO</div>
+<div class="scndBrand"><h3>Log-In</h3></div>
+<!--$r-->
+<div id="log" class="container">
+    <form id="loginform" role="form">
+        <input id="signin-email" type="text" name="email" placeholder="Email" class="form-control"/>
+        <input id="signin-password" type="password" name="password" placeholder="Password" class="form-control"/>
+        <button id="signin-submit" class="butn" value="log" type="submit">Sign in</button>
+        <a href="registration.html">
+            <button type="button" class="butn">Sign up</button>
+        </a>
+    </form>
+</div>
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery.validate.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#signin-submit').click(function () {
+            var post_data = {
+                'email': $('#signin-email').val(),
+                'password': $('#signin-password').val()};
+            $.getJSON("/cgi-bin/login.py", post_data, function (data) {
+                if (data['error']) {
+                    $('#signin-email').before($('<span>', {
+                        text: data['error']
+                    })).addClass('error');
+                } else {
+                    if (data['id']) {
+                        setCookie("user_id", $.trim(data['id']));
+                    }
+                    if (data['email']) {
+                        setCookie("user_id", $.trim(data['email']));
+                    }
+                    window.location('/home.html');
+                }
+            });
+            return false;
+        });
+    });
+
+</script>
 </body>
 
 </html>

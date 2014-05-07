@@ -1,55 +1,62 @@
 <!doctype html>
 
 <html lang="en">
-	<head>
-		<title>Home page | iDELO</title>
+<head>
+    <title>Home page | iDELO</title>
 
-		<meta charset="utf-8" />
-		<meta name="description" content="iDELO" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="description" content="iDELO"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-		<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
-		<link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
 
-	</head>
+</head>
 
 <body>
 
-    <div class="brand">iDELO Registration</div>
-    <div id="reg" class="container">
-	<!--<form class="form-horizontal" id="registration" method='post'>-->
-                <form id="regform" role="form">
-                        <input type="text" class="form-control reg-input" id="reg-name" name="full_name" placeholder="Full name">
-                        <input type="text" class="form-control reg-input" id="reg-birthdate" name="birthdate" placeholder="Birth date YYYY-MM-DD">
-                        <input type="text" class="form-control reg-input" id="reg-address" name="address" placeholder="Address">
-                        <input type="email" class="form-control reg-input" id="reg-email" name="email" placeholder="Enter email">
-                        <input type="password" class="form-control" id="reg-password" name="password" placeholder="Password">
-                    <div class="form-group">
-                        <label for="reg-photo">Photo</label>
-                        <input type="file" class="reg-input" id="reg-photo">
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" id="reg-sex" name="sex">
-                            <option>Choose..</option>
-                            <option>M</option>
-                            <option>F</option>
-                        </select>
-                    </div>
-                </form>
-			<div class="controls">
-				<button type="submit" class="btn btn-success" >Submit</button>
-				<a href="index.html"><button type="button" class="btn btn-success">HOME</button></a>
-			</div>
-	<!--</form>-->
-    </div>
+<div class="brand">iDELO Registration</div>
+<div id="reg" class="container">
+    <!--<form class="form-horizontal" id="registration" method='post'>-->
+    <form id="regform" enctype="multipart/form-data" role="form" action="cgi-bin/register.py" method="post">
+        <input type="text" class="form-control reg-input" id="reg-name" name="full_name" placeholder="Full name">
+        <input type="text" class="form-control reg-input" id="reg-birthdate" name="birthdate"
+               placeholder="Birth date YYYY-MM-DD">
+        <input type="text" class="form-control reg-input" id="reg-address" name="address" placeholder="Address">
+        <input type="email" class="form-control reg-input" id="reg-email" name="email" placeholder="Enter email">
+        <input type="password" class="form-control" id="reg-password" name="password" placeholder="Password">
 
-    <!-- JavaScript -->
-    <script src="js/jquery.js"></script>
-	<script src="js/jquery.validate.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+        <div class="form-group">
+            <label for="reg-photo">Photo</label>
+            <input type="file" name="photo" class="reg-input" id="reg-photo">
+        </div>
+        <div class="form-group">
+            <select class="form-control" id="reg-sex" name="sex">
+                <option>Choose..</option>
+                <option>M</option>
+                <option>F</option>
+            </select>
+        </div>
+        <div class="controls">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <a href="index.html">
+                <button type="button" class="btn btn-success">HOME</button>
+            </a>
+        </div>
+    </form>
+    <!--</form>-->
+</div>
 
+<!-- JavaScript -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+
+</script>
 </body>
 
 </html>

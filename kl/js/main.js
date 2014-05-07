@@ -9,7 +9,7 @@ function checkCookie() {
 
     var username = getCookie("username");
 
-    if(username != null && username != "" && username == "admin@admin.com") {
+    if (username != null && username != "" && username == "admin@admin.com") {
         return true;
     }
     return false;
@@ -17,11 +17,11 @@ function checkCookie() {
 
 function getCookie(c_name) {
     var i, x, y, ARRcookies = document.cookie.split(";");
-    for(i = 0; i < ARRcookies.length; i++) {
+    for (i = 0; i < ARRcookies.length; i++) {
         x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
         y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
         x = x.replace(/^\s+|\s+$/g, "");
-        if(x == c_name) {
+        if (x == c_name) {
             return unescape(y);
         }
     }
@@ -30,27 +30,27 @@ function getCookie(c_name) {
 
 /*-------------------------------------------*/
 function log() {
-    if($("#signin-email").val() == 'admin@admin.com') {
-        if($("#signin-password").val() == 'admin') {
+    if ($("#signin-email").val() == 'admin@admin.com') {
+        if ($("#signin-password").val() == 'admin') {
             setCookie("username", $.trim($("#signin-email").val()));
             alert("successfully logged in");
             window.location = "home.html";
-        } else if($("#signin-password").value == '') {
+        } else if ($("#signin-password").value == '') {
             alert("Password can't be blank");
         } else {
             alert("Wrong password");
         }
-    } else if($("#signin-email").value == 'derp@derpson.com') {
-        if($("#signin-password").value == 'derp') {
+    } else if ($("#signin-email").value == 'derp@derpson.com') {
+        if ($("#signin-password").value == 'derp') {
             setCookie("username", $.trim($("#signin-email").val()));
             alert("successfully logged in");
             window.location = "home.html";
-        } else if($("#signin-password").value == '') {
+        } else if ($("#signin-password").value == '') {
             alert("Password can't be blank");
         } else {
             alert("Wrong password");
         }
-    } else if($("#signin-email").value == '') {
+    } else if ($("#signin-email").value == '') {
         alert("UserId can't be blank");
     } else {
         alert("No such user");
@@ -62,41 +62,23 @@ function newComplaint() {
 }
 
 
-$('#MyProfile').click(function() {
+$('#MyProfile').click(function () {
     window.location = "home.html";
 });
 
-$('#logout').click(function() {
+$('#logout').click(function () {
     location.reload();
 });
 
-$('#signin-submit').click(function() {
-    log();
-});
+//$('#signin-submit').click(function() {
+//    log();
+//});
 
-$('#newComp').click(function() {
+$('#newComp').click(function () {
     newComplaint();
 });
 
-
-$(document).ready(function Valid() {
-
-    $("#loginform").validate({
-        rules: {
-            login: {
-                required: true,
-                email: true
-            },
-            pswd: {
-                required: true,
-                minlength: 3,
-                maxlength: 16
-            }
-        }
-    });
-});
-
-$(document).ready(function() {
+$(document).ready(function () {
     $("#regform").validate({
         rules: {
             full_name: {
@@ -116,7 +98,7 @@ $(document).ready(function() {
 
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     $("#newComp").validate({
 
         rules: {
