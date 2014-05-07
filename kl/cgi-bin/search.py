@@ -1,9 +1,10 @@
 #!/usr/bin/python
-import sys
 import cgi
 import sqlite3 as sqlite
+
 from complaint import fields as complaint_fields
 from user import fields as user_fields
+
 
 databasefile = 'data.db'
 fields = complaint_fields + user_fields

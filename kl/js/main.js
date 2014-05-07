@@ -32,31 +32,32 @@ function getCookie(c_name) {
 
 
 /*-------------------------------------------*/
-function log(){
-	if ($("#signin-email").value =='admin@admin.com'){
-		if($("#signin-password").value =='admin'){
-			setCookie("username", $.trim($("#signin-email").val()));
-			alert("successfully logged in");
-			window.location = "home.html";
-		}else if($("#signin-password").value ==''){
-			alert("Password can't be blank");
-		}else{
-			alert("Wrong password");
-		}
-	}else if($("#signin-email").value =='derp@derpson.com'){
-		if($("#signin-password").value =='derp'){
-			setCookie("username", $.trim($("#signin-email").val()));
-			alert("successfully logged in");
-			window.location = "home.html";
-		}else if($("#signin-password").value ==''){
-			alert("Password can't be blank");
-		}else{alert("Wrong password");
-			 }
-	}else if ($("#signin-email").value ==''){
-		alert("UserId can't be blank");
-	}else{
-		alert("No such user");
-	}
+function log() {
+    if ($("#signin-email").val() == 'admin@admin.com') {
+        if ($("#signin-password").val() == 'admin') {
+            setCookie("username", $.trim($("#signin-email").val()));
+            alert("successfully logged in");
+            window.location = "home.html";
+        } else if ($("#signin-password").value == '') {
+            alert("Password can't be blank");
+        } else {
+            alert("Wrong password");
+        }
+    } else if ($("#signin-email").value == 'derp@derpson.com') {
+        if ($("#signin-password").value == 'derp') {
+            setCookie("username", $.trim($("#signin-email").val()));
+            alert("successfully logged in");
+            window.location = "home.html";
+        } else if ($("#signin-password").value == '') {
+            alert("Password can't be blank");
+        } else {
+            alert("Wrong password");
+        }
+    } else if ($("#signin-email").value == '') {
+        alert("UserId can't be blank");
+    } else {
+        alert("No such user");
+    }
 }
 
 function newComplaint(){

@@ -4,13 +4,13 @@ import cgi
 import sqlite3 as sqlite
 
 databasefile = 'data.db'
-fields = ['id', 'title', 'description',
-          'time', 'tag', 'location', 'photo']
+fields = ['id', 'full_name', 'sex', 'birthdate',
+          'address', 'photo', 'is_admin']
 
 print 'Content-type: text/plain'
 print
 
-
+# TODO POISK VSEH UZEROV
 def jsonstr(data):
     if data:
         try:
@@ -25,10 +25,7 @@ def jsonstr(data):
 try:
     form = cgi.FieldStorage()
     if form.has_key('id'):
-        #print form['id'].value
-        query = "select * from complaint where id = " + form['id'].value
-        #query = "select * from books"
-        #print query
+        query = "select * from user where id = " + form['id'].value
         con = sqlite.connect(databasefile)
         cur = con.cursor()
         cur.execute(query)
@@ -39,7 +36,6 @@ try:
             if not row:
                 break
             res = res + [row]
-
 
         l = len(res)
         i = 0
