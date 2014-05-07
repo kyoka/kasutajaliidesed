@@ -15,6 +15,10 @@
             text-align: center;
         }
 
+        .glyphicon {
+            font-size: 20px;
+        }
+
         .active-glyph {
             color: #09ff00;
         }
@@ -43,8 +47,18 @@
 <script src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
+    function glyphClickEvent(glyph) {
+        var glyph = $(glyph);
+        if(glyph.hasClass('active-glyph')) {
+            glyph.removeClass('active-glyph');
+        } else {
+            $('.active-glyph').removeClass('active-glyph');
+            glyph.addClass('active-glyph');
+        }
+    }
+
     $(document).ready(function() {
-        a = $('#user_complaints').dataTable({
+        var def = $('#user_complaints').dataTable({
             "paging": false,
             "info": false,
             "searching": false,
@@ -57,19 +71,11 @@
                 {"data": "time"},
                 {"data": "title"},
                 {"data": null,
-                    "defaultContent": "<span class=\"glyphicon glyphicon-play\"></span>" }
+                    "defaultContent": "<span onclick='glyphClickEvent(this);' class=\"glyphicon glyphicon-play\"></span>" }
             ]
         });
-        console.debug(a);
-        $('.glyphicon').click(function() {
-            var glyph = $(this);
+        console.log(def);
 
-            if(glyph.hasClass('active-glyph')) {
-                glyph.removeClass('active-glyph');
-            } else {
-                glyph.addClass('active-glyph');
-            }
-        });
 //        $.getJSON('/cgi-bin/complaint.py?c=user_id&v=1', function(result) {
 //            alert(result)
 //        });

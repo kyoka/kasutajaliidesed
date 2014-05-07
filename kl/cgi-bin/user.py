@@ -5,7 +5,7 @@ import sqlite3 as sqlite
 
 databasefile = 'data.db'
 fields = ['id', 'full_name', 'sex', 'birthdate',
-          'address', 'photo', 'is_admin']
+          'address', 'photo', 'is_admin', 'email', 'password']
 
 print 'Content-type: text/plain'
 print
@@ -60,5 +60,5 @@ try:
         print "0"
 
 except Exception, e:
-    print e # uncommment for debugging
+    print e  # uncommment for debugging
     print "0"
