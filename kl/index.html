@@ -15,8 +15,8 @@
 <body>
 <div class="brand">iDELO</div>
 <div class="scndBrand"><h3>Log-In</h3></div>
-<!--$r-->
 <div id="log" class="container">
+    <!--$r-->
     <form id="loginform" role="form">
         <input id="signin-email" type="text" name="email" placeholder="Email" class="form-control"/>
         <input id="signin-password" type="password" name="password" placeholder="Password" class="form-control"/>
@@ -33,6 +33,10 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#signin-submit').click(function () {
+            deleteCookie('id');
+            deleteCookie('email');
+            deleteCookie('is_admin');
+
             var post_data = {
                 'email': $('#signin-email').val(),
                 'password': $('#signin-password').val()};
@@ -47,6 +51,9 @@
                     }
                     if (data['email']) {
                         setCookie("email", $.trim(data['email']));
+                    }
+                    if (data['is_admin']) {
+                        setCookie("is_admin", $.trim(data['is_admin']));
                     }
                     window.location = "/home.html";
                 }

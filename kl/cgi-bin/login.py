@@ -14,16 +14,18 @@ try:
     if (form.has_key('email')
         and form.has_key('password')):
 
-        query = "select id from user where email='%s' and password ='%s'" \
+        query = "select id,is_admin from user where email='%s' and password ='%s'" \
                 % (form['email'].value, form['password'].value)
         con = sqlite.connect(databasefile)
         cur = con.cursor()
         cur.execute(query)
-        user_id = cur.fetchone()[0]
+        user = cur.fetchone()
+        user_id = user[0]
+        is_admin = user[1]
         if not user_id:
             print json.dumps({'error': 'Incorrect email or password'})
         else:
-            print json.dumps({'id': user_id, 'email': form['email'].value})
+            print json.dumps({'id': user_id, 'email': form['email'].value, 'is_admin': is_admin})
     else:
         print json.dumps({'error': 'Fill both email and password fields'})
 

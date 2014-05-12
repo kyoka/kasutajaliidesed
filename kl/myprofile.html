@@ -34,7 +34,7 @@
 <div class="container">
     <div class="navbar">
         <div class="navbar-inner">
-            <ul class="nav navbar-nav">
+            <ul id="left-header" class="nav navbar-nav">
                 <li><a class="navlink" href="home.html"><b>Home</b></a>
                 </li>
                 <li><a class="navlink" href="about.html"><b>About</b></a>
@@ -58,7 +58,7 @@
     <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <h4 id="nameHead"><b>Herp Herpson</b></h4>
             </br>
             <table>
@@ -95,11 +95,11 @@
                     Complaints</b></h4>
             </div>
             <div id="user_complaints_div" class="collapse">
-                <table id="user_complaints" class="display" cellspacing="0" width="100%">
+                <table id="complaints-table" class="display" cellspacing="0">
                     <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Title</th>
+                        <th scope="col" class="rounded">Date</th>
+                        <th scope="col" class="rounded">Title</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -110,38 +110,39 @@
                 </table>
             </div>
         </div>
+        <div class="col-md-1">&nbsp;</div>
         <!----->
         <div id="user_complaints_full" class="col-md-6">
             <div class="row">
                 <div id="expandpanel2">
-                    <table cellspacing="0">
+                    <table class="compTable" cellspacing="0">
                         <tr>
-                            <td><p class="textColor">Complaint Header</p></td>
+                            <td class="compTableTd"><p class="textColor">Complaint Header</p></td>
                             <td><p>&nbsp;</p></td>
                             <td><p id="compHead"></p></td>
                         </tr>
                         <tr>
-                            <td><p class="textColor">Type of complaint</p></td>
+                            <td class="compTableTd"><p class="textColor">Type of complaint</p></td>
                             <td><p>&nbsp;</p></td>
                             <td><p id="compTag"></p></td>
                         </tr>
                         <tr>
-                            <td><p class="textColor">Date/Time</p></td>
+                            <td class="compTableTd"><p class="textColor">Date/Time</p></td>
                             <td><p>&nbsp;</p></td>
                             <td><p id="compDate"></p></td>
                         </tr>
                         <tr>
-                            <td><p class="textColor">Aadress</p></td>
+                            <td class="compTableTd"><p class="textColor">Aadress</p></td>
                             <td>&nbsp;</td>
                             <td><p id="compAadress"></p></td>
                         </tr>
                         <tr>
-                            <td><p class="textColor">Details</p></td>
+                            <td class="compTableTd"><p class="textColor">Details</p></td>
                             <td><p>&nbsp;</p></td>
                             <td><p id="compDet"></p></td>
                         </tr>
                         <tr>
-                            <td><p class="textColor">Images</p></td>
+                            <td class="compTableTd"><p class="textColor">Images</p></td>
                             <td><p>&nbsp;</p></td>
                             <td>
                                 <div id="compImg"></div>
@@ -155,9 +156,11 @@
         </div>
         <!----->
     </div>
+    </br></br>
 
 
 </div>
+</br>
 
 <!-- JavaScript -->
 <script src="js/jquery.js"></script>
@@ -180,7 +183,7 @@
             user.image = result['file_name'];
         });
 
-        $('#user_complaints').dataTable({
+        $('#complaints-table').dataTable({
             "paging": false,
             "info": false,
             "searching": false,
@@ -196,7 +199,7 @@
                     return"<span onclick='glyphClickEvent(this, " + data + ");' class=\"glyphicon glyphicon-play\"></span>";
                 } }
             ]
-        });
+        })
     });
 </script>
 </body>

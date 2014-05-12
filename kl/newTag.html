@@ -15,7 +15,6 @@
 </head>
 
 <body>
-
 <div class="brand">iDELO</div>
 <div class="container">
     <div class="navbar">
@@ -36,12 +35,34 @@
             </ul>
         </div>
     </div>
-
 </div>
+
+<div id="reg" class="container">
+    <form class="form-horizontal" id="newTag" method='post' action="/cgi-bin/tag.py">
+        <input type="text" class="form-control reg-input" id="comp-name" name="value" placeholder="New tag">
+
+        <div class="controls">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </form>
+</div>
+
 <!-- JavaScript -->
 <script src="js/jquery.js"></script>
+<script src="js/jquery.validate.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('form#newTag').submit(function () {
+            $.post('/cgi-bin/tag.py', {'cmd': 'add', 'tag': $('input[name=value]').val()}, function (result) {
+                alert(result);
+            });
+            return false
+        });
+    });
+
+</script>
 
 </body>
 

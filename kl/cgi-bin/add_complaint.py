@@ -1,11 +1,11 @@
 #!/usr/bin/python
-import sys
+import os
 import cgi
 import sqlite3 as sqlite
 
-databasefile = 'data.db'
+databasefile = 'mydb.db'
 
-print 'Content-type: text/plain'
+print 'Content-type: text/html'
 print
 
 try:
@@ -15,38 +15,41 @@ try:
         and form.has_key('time')
         and form.has_key('tag')
         and form.has_key('description')
+        and form.has_key('location')
     ):
-        values = {'user': form['user'].value, 'title': form['title'].value,
-                  'time': form['time'].value, 'tag': form['tag'].value,
-                  'description': form['description'].value,
-                  'location': form['location'].value if form.has_key(
-                      'location') else '',
-                  'photo': form['photo'].value if form.has_key('photo') else ''}
-        columns = []
-        vals = []
-        for k, v in values.iteritems():
-            columns.append(k)
-            vals.append(v)
+        files = form['photo'] if 'photo' in form else None
+        values = {
+            'user_id': form['user'].value,
+            'title': form['title'].value,
+            'tag': form['tag'].value,
+            'description': form['description'].value,
+            'time': form['time'].value,
+            'location': form['location'].value if form.has_key('location') else ''
+        }
+        # Test if the file was uploaded]
+        query = ("insert into complaint(%s) values (?,?,?,?,?,?)" % ','.join(values.keys()))
 
-                # Test if the file was uploaded]
+        con = sqlite.connect(databasefile)
+        cur = con.cursor()
+        comp_id = cur.execute(query, values.values()).lastrowid
+
         if files is not None:
             if not isinstance(files, list):
                 files = [files]
             for file in files:
                 if file.filename:
-                    # strip leading path from file name to avoid directory traversal attacks
+                # strip leading path from file name to avoid directory traversal attacks
                     fn = os.path.basename(file.filename)
                     open('img/' + fn, 'wb').write(file.file.read())
-                    query = 'insert into user_photo values (?, ?);'
-                    cur.execute(query,(id, fn))
-        query = ("insert into complaint(%s) values (%s)" %
-                 (','.join(columns), ','.join(vals)))
-
-        con = sqlite.connect(databasefile)
-        cur = con.cursor()
-        cur.execute(query)
+                    query = 'insert into complaint_photo values (?, ?);'
+                    cur.execute(query, (comp_id, fn))
         con.commit()
-        print "1"
+        f = open('newComp.html', 'r')
+        html = f.read()
+        f.close()
+        html = html.replace('<!--$r-->', '<h4>New complaint successfully added</h4>')
+        html = html.replace('window.location = "/home.html', 'window.location = "../home.html')
+        print html
     else:
         print "0"
 

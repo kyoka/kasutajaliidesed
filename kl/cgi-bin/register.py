@@ -8,8 +8,6 @@ databasefile = 'mydb.db'
 
 print 'Content-type: text/html'
 print
-import pydevd
-pydevd.settrace('localhost', port=12345, stdoutToServer=True, stderrToServer=True, suspend=False)
 try: # Windows needs stdio set for binary mode.
     import msvcrt
 
@@ -22,7 +20,7 @@ try:
     if (form.has_key('full_name')
         and form.has_key('email')
         and form.has_key('password')):
-        files = form['photo'] if 'photo' in form else None
+        file = form['photo'] if 'photo' in form else None
         values = {
             'email': form['email'].value,
             'password': form['password'].value,
@@ -40,13 +38,13 @@ try:
             fn = os.path.basename(file.filename)
             open('img/' + fn, 'wb').write(file.file.read())
             query = 'insert into user_photo values (?, ?);'
-            cur.execute(query,(id, fn))
+            cur.execute(query, (id, fn))
 
         con.commit()
         f = open('index.html', 'r')
         html = f.read()
         f.close()
-        html = html.replace('<!--$r-->', '<h2>Registration Successful</h2>')
+        html = html.replace('<!--$r-->', '<h4>Registration Successful</h4>')
         html = html.replace('window.location = "/home.html', 'window.location = "../home.html')
         print html
     else:

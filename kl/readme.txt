@@ -7,6 +7,10 @@ id	isbn	title	author	pub_year	description	lang	cat	keywords	adder	date
 
 $sqlite3 data.db
 
+create table tag(
+value varchar(50) primary key
+);
+
 drop table complaint;
 create table complaint(
 id integer primary key,

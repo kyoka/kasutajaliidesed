@@ -8,9 +8,9 @@
     <meta name="description" content="iDELO"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/bootstrap-responsive.css" type="text/css"/>
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -19,18 +19,18 @@
 <div class="container">
     <div class="navbar">
         <div class="navbar-inner">
-            <ul class="nav navbar-nav">
-                <li><a class="navlink" href="home.html"><b>Home</b></a>
+            <ul id="left-header" class="nav navbar-nav">
+                <li><a class="navlink" href="/home.html"><b>Home</b></a>
                 </li>
-                <li><a class="navlink" href="about.html"><b>About</b></a>
+                <li><a class="navlink" href="/about.html"><b>About</b></a>
                 </li>
-                <li><a class="navlink" href="list.html"><b>Complaints List</b></a>
+                <li><a class="navlink" href="/list.html"><b>Complaints List</b></a>
                 </li>
-                <li><a class="navlink" href="newComp.html"><b>New Complaint</b></a>
+                <li><a class="navlink" href="/newComp.html"><b>New Complaint</b></a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="navlink" href="myprofile.html"><b>My profile</b></a>
+                <li><a class="navlink" href="/myprofile.html"><b>My profile</b></a>
                 </li>
             </ul>
         </div>
@@ -38,13 +38,21 @@
 </div>
 
 <div id="reg" class="container">
-    <form class="form-horizontal" id="newComp" method='post'>
-        <input type="text" class="form-control reg-input" id="comp-name" name="compH" placeholder="Complaint Header">
-        <input type="text" class="form-control reg-input" id="comp-name" name="compType"
-               placeholder="Type of complaint">
-        <input type="text" class="form-control reg-input" id="comp-name" name="compDt" placeholder="Date/Time">
-        <textarea type="text" name="compDet" cols="70" rows="3" placeholder="Details"></textarea>
+    <!--$r-->
+    <form class="form-horizontal" enctype="multipart/form-data" id="newComp" method='post'
+          action="cgi-bin/add_complaint.py">
+        <input type="text" class="form-control reg-input" name="title" placeholder="Title">
+        <input type="text" class="form-control reg-input" name="location" placeholder="Location">
 
+        <input type="hidden" name="user">
+
+        <input type="text" class="form-control reg-input" name="time" placeholder="Date/Time">
+        <textarea type="text" name="description" cols="70" rows="3" placeholder="Details"></textarea>
+
+        <div class="form-group">
+            <label for="reg-photo">Images</label>
+            <input type="file" multiple="" name="photo" class="reg-input" id="reg-photo">
+        </div>
         <div class="controls">
             <button type="submit" class="btn btn-success">Submit</button>
             <a href="home.html">
@@ -55,11 +63,28 @@
 </div>
 
 <!-- JavaScript -->
-<script src="js/jquery.js"></script>
-<script src="js/jquery.validate.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery.validate.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[name=user]').val(getCookie('user_id'));
+        $.getJSON('/cgi-bin/tag.py', {'cmd': 'get'}, function (data) {
+            window.data = data.data;
+            var select = $('<select name="tag"></select>');
+            $.each(data.data, function (i, v) {
+                var opt = $('<option value="' + v + '">' + v + '</option>');
+                opt.appendTo(select);
+            });
+            select.addClass('form-control').addClass('reg-input');
+            select.insertAfter($('input[name=title]'));
+        });
+
+    });
+
+</script>
 </body>
 
 </html>

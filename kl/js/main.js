@@ -27,58 +27,22 @@ function getCookie(c_name) {
     }
 }
 
-
-/*-------------------------------------------*/
-function log() {
-    if ($("#signin-email").val() == 'admin@admin.com') {
-        if ($("#signin-password").val() == 'admin') {
-            setCookie("username", $.trim($("#signin-email").val()));
-            alert("successfully logged in");
-            window.location = "home.html";
-        } else if ($("#signin-password").value == '') {
-            alert("Password can't be blank");
-        } else {
-            alert("Wrong password");
-        }
-    } else if ($("#signin-email").value == 'derp@derpson.com') {
-        if ($("#signin-password").value == 'derp') {
-            setCookie("username", $.trim($("#signin-email").val()));
-            alert("successfully logged in");
-            window.location = "home.html";
-        } else if ($("#signin-password").value == '') {
-            alert("Password can't be blank");
-        } else {
-            alert("Wrong password");
-        }
-    } else if ($("#signin-email").value == '') {
-        alert("UserId can't be blank");
-    } else {
-        alert("No such user");
-    }
-}
-
 function newComplaint() {
 
 }
-
-
-$('#MyProfile').click(function () {
-    window.location = "home.html";
-});
-
-$('#logout').click(function () {
-    location.reload();
-});
-
-//$('#signin-submit').click(function() {
-//    log();
-//});
 
 $('#newComp').click(function () {
     newComplaint();
 });
 
 $(document).ready(function () {
+    if (getCookie('is_admin')) {
+        var a = $('<a></a>', {
+            'href': '/newTag.html'
+        }).addClass('navlink').text('Add Tag');
+        var li = $('<li></li>');
+        $('#left-header').append(li.append(a));
+    }
     $("#regform").validate({
         rules: {
             full_name: {
@@ -95,10 +59,6 @@ $(document).ready(function () {
             }
         }
     });
-
-});
-
-$(document).ready(function () {
     $("#newComp").validate({
 
         rules: {
@@ -119,7 +79,6 @@ $(document).ready(function () {
     });
 
 });
-
 
 function renderComplaint(complaint_id) {
     $.getJSON("/cgi-bin/complaint.py?c=id&v=" + complaint_id, function (data) {
@@ -149,6 +108,7 @@ function renderComplaint(complaint_id) {
     });
 
 }
+
 function glyphClickEvent(glyph, complaint_id) {
     var glyph = $(glyph);
     var complain_div = $('#user_complaints_full');

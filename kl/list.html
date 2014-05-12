@@ -8,8 +8,9 @@
     <meta name="description" content="iDELO"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-    <!--<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>-->
+    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet"
           href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
@@ -21,7 +22,7 @@
 <div class="container">
     <div class="navbar">
         <div class="navbar-inner">
-            <ul class="nav navbar-nav">
+            <ul id="left-header" class="nav navbar-nav">
                 <li><a class="navlink" href="home.html"><b>Home</b></a>
                 </li>
                 <li><a class="navlink" href="about.html"><b>About</b></a>
@@ -39,87 +40,96 @@
     </div>
 </div>
 
-<div class="container">
-    <form id="search-form" class="navbar-form" role="search">
-        <div class="form-group">
-            <input class="form-control search-field" name="name" type="text" placeholder="Search for...">
-            <input class="form-control search-field" style="display: none;" name="title" type="text"
-                   placeholder="by title">
-            <input class="form-control search-field" style="display: none;" name="description" type="text"
-                   placeholder="by details">
-            <input class="form-control search-field" style="display: none;" name="tag" type="text" placeholder="by tag">
-            <input class="btn-success" type="submit" value="Search"/>
-
-            <p style="font-size:10px; margin-top:1px; margin-bottom:1px;">&nbsp;&nbsp;&nbsp;
-                <a id="advanced-search-link" class="navlink" href="#">
-                    <b>switch to
-                        <span class="adv-search-text">advanced search</span>
-                    </b>
-                </a>
-            </p>
-        </div>
-    </form>
-
-    <div class="col-md-6">
-        <table id="all_complaints_list" class="display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Citizen</th>
-                <th>Title</th>
-                <th>Tag</th>
-                <th>Location</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            </tr>
-            </tbody>
-        </table>
+<div class="row">
+    <div class="col-md-1">
     </div>
+    <div class="col-md-8">
+        <form id="search-form" class="navbar-form" role="search">
+            <div class="form-group">
+                <input class="form-control search-field" name="name" type="text" placeholder="Search for...">
+                <input class="form-control search-field" style="display: none;" name="title" type="text"
+                       placeholder="by title">
+                <input class="form-control search-field" style="display: none;" name="description" type="text"
+                       placeholder="by details">
+                <input class="form-control search-field" style="display: none;" name="tag" type="text"
+                       placeholder="by tag">
+                <input class="btn-success" type="submit" value="Search"/>
 
-    <div id="user_complaints_full" class="col-md-6">
-        <div class="row">
-            <div id="expandpanel2">
-                <table cellspacing="0">
-                    <tr>
-                        <td><p class="textColor">Complaint Header</p></td>
-                        <td><p>&nbsp;</p></td>
-                        <td><p id="compHead"></p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="textColor">Type of complaint</p></td>
-                        <td><p>&nbsp;</p></td>
-                        <td><p id="compTag"></p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="textColor">Date/Time</p></td>
-                        <td><p>&nbsp;</p></td>
-                        <td><p id="compDate"></p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="textColor">Aadress</p></td>
-                        <td>&nbsp;</td>
-                        <td><p id="compAadress"></p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="textColor">Details</p></td>
-                        <td><p>&nbsp;</p></td>
-                        <td><p id="compDet"></p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="textColor">Images</p></td>
-                        <td><p>&nbsp;</p></td>
-                        <td>
-                            <div id="compImg"></div>
-                        </td>
-                    </tr>
-
-                </table>
+                <p style="font-size:10px; margin-top:1px; margin-bottom:1px;">&nbsp;&nbsp;&nbsp;
+                    <a id="advanced-search-link" class="navlink" href="#">
+                        <b>switch to
+                            <span class="adv-search-text">advanced search</span>
+                        </b>
+                    </a>
+                </p>
             </div>
+
+        </form>
+    </div>
+</div>
+<div class="col-md-1">
+</div>
+<div class="col-md-4">
+    <table id="complaints-table" class="display complaints-table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Citizen</th>
+            <th>Title</th>
+            <th>Tag</th>
+            <th>Location</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="user_complaints_full" class="col-md-6">
+    <div class="row">
+        <div id="expandpanel2">
+            <table class="compTable" cellspacing="0">
+                <tr>
+                    <td class="compTableTd"><p class="textColor">Complaint Header</p></td>
+                    <td><p>&nbsp;</p></td>
+                    <td><p id="compHead"></p></td>
+                </tr>
+                <tr>
+                    <td class="compTableTd"><p class="textColor">Type of complaint</p></td>
+                    <td><p>&nbsp;</p></td>
+                    <td><p id="compTag"></p></td>
+                </tr>
+                <tr>
+                    <td class="compTableTd"><p class="textColor">Date/Time</p></td>
+                    <td><p>&nbsp;</p></td>
+                    <td><p id="compDate"></p></td>
+                </tr>
+                <tr>
+                    <td class="compTableTd"><p class="textColor">Aadress</p></td>
+                    <td>&nbsp;</td>
+                    <td><p id="compAadress"></p></td>
+                </tr>
+                <tr>
+                    <td class="compTableTd"><p class="textColor">Details</p></td>
+                    <td><p>&nbsp;</p></td>
+                    <td><p id="compDet"></p></td>
+                </tr>
+                <tr>
+                    <td class="compTableTd"><p class="textColor">Images</p></td>
+                    <td><p>&nbsp;</p></td>
+                    <td>
+                        <div id="compImg"></div>
+                    </td>
+                </tr>
+
+            </table>
+            </br>
         </div>
     </div>
+</div>
 </div>
 
 <script src="js/jquery.js"></script>
@@ -130,7 +140,7 @@
 <script src="//cdn.datatables.net/plug-ins/e9421181788/api/fnReloadAjax.js"></script>
 <script type="text/javascript">
     function initTable() {
-        return $('#all_complaints_list').dataTable({
+        return $('#complaints-table').dataTable({
             "paging": false,
             "info": false,
             "searching": false,
