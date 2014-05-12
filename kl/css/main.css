@@ -1,3 +1,13 @@
+.costomSpan1 {
+}
+
+.costomSpan2 {
+}
+
+.textColor {
+    color: #530FAD;
+}
+
 body {
     background: url(../img/b.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -11,9 +21,19 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 3px;
     font-weight: 400;
     color: #530FAD;
+    text-decoration: none;
 }
 
-.navlink {
+h1:hover, h2:hover, h3:hover, h5:hover, h6:hover {
+    background-color: #eee;
+    width: 195px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#navlink {
     color: #530FAD;
 }
 
@@ -117,6 +137,8 @@ footer p {
 .listofname {
     font-family: sans-serif Comic Sans;
     font-size: 16px;
+    width: 120px;
+    height: 20px;
     opacity: 1;
     -webkit-transform: scale(1, 1);
     -webkit-transition-timing-function: ease-out;
@@ -124,6 +146,9 @@ footer p {
     -moz-transform: scale(1, 1);
     -moz-transition-timing-function: ease-out;
     -moz-transition-duration: 15ms;
+    text-decoration: none;
+    color: #530FAD;
+    /*text-shadow: -1px 1px 10px black;*/
 }
 
 .listofname:hover {
@@ -162,8 +187,8 @@ footer p {
 
 #expandpanel {
     font-family: sans-serif Comic Sans;
-    margin-left: 100px;
-    margin-right: 45px;
+    margin-left: 70px;
+    /*margin-right: 45px;*/
     color: #530FAD;
 }
 
@@ -181,6 +206,10 @@ footer p {
     margin-left: -30px;
 }
 
+#expandpanel2 {
+    margin-left: 14px;
+}
+
 #nameHead {
     font-family: sans-serif Comic Sans;
     color: #530FAD;
@@ -188,7 +217,7 @@ footer p {
 
 .error {
     color: red;
-    text-size: 8;
+    font-size: 8;
 }
 
 #reg {
