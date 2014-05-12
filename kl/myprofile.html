@@ -189,6 +189,7 @@
             $('#compDate').text(data.time);
             $('#compTag').text(data.tag);
             $('#compAadress').text(data.location);
+            $('#compImg').empty();
             if (data.images) {
                 $(data.images.split(',')).each(function (index, value) {
                     var div = $('<div></div>').addClass('col-md-4');
