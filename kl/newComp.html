@@ -1,42 +1,64 @@
 <!doctype html>
 
 <html lang="en">
-	<head>
-		<title>Home page | iDELO</title>
-		
-		<meta charset="utf-8" />
-		<meta name="description" content="iDELO" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
-		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-		<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
-		<link href="css/main.css" rel="stylesheet" type="text/css">
-		
-	</head>
-	
-<body>
-	
-    <div class="brand">iDELO</div>
-	<h3>New Complaint</h3>
-    <div id="reg" class="container">
-		<form class="form-horizontal" id="newComp" method='post'>
-            <input type="text" class="form-control reg-input" id="comp-name" name="compH" placeholder="Complaint Header">
-            <input type="text" class="form-control reg-input" id="comp-name" name="compType" placeholder="Type of complaint">
-            <input type="text" class="form-control reg-input" id="comp-name" name="compDt"  placeholder="Date/Time">
-			<textarea type="text" name="compDet" cols="70" rows="3" placeholder="Details"></textarea>
+<head>
+    <title>Home page | iDELO</title>
 
-			<div class="controls">
-				<button type="submit" class="btn btn-success" >Submit</button>
-				<a href="index.html"><button type="button" class="btn btn-success">HOME</button></a>
-			</div>
-		</form>
+    <meta charset="utf-8"/>
+    <meta name="description" content="iDELO"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div class="brand">iDELO</div>
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav navbar-nav">
+                <li><a class="navlink" href="home.html"><b>Home</b></a>
+                </li>
+                <li><a class="navlink" href="about.html"><b>About</b></a>
+                </li>
+                <li><a class="navlink" href="list.html"><b>Complaints List</b></a>
+                </li>
+                <li><a class="navlink" href="newComp.html"><b>New Complaint</b></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="navlink" href="myprofile.html"><b>My profile</b></a>
+                </li>
+            </ul>
+        </div>
     </div>
-	
-    <!-- JavaScript -->
-    <script src="js/jquery.js"></script>
-	<script src="js/jquery.validate.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+</div>
+
+<div id="reg" class="container">
+    <form class="form-horizontal" id="newComp" method='post'>
+        <input type="text" class="form-control reg-input" id="comp-name" name="compH" placeholder="Complaint Header">
+        <input type="text" class="form-control reg-input" id="comp-name" name="compType"
+               placeholder="Type of complaint">
+        <input type="text" class="form-control reg-input" id="comp-name" name="compDt" placeholder="Date/Time">
+        <textarea type="text" name="compDet" cols="70" rows="3" placeholder="Details"></textarea>
+
+        <div class="controls">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <a href="home.html">
+                <button type="button" class="btn btn-success">HOME</button>
+            </a>
+        </div>
+    </form>
+</div>
+
+<!-- JavaScript -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 

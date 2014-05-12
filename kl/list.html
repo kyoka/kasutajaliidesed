@@ -1,381 +1,202 @@
 <!doctype html>
 
 <html lang="en">
-	<head>
-		<title>Home page | iDELO</title>
-		
-		<meta charset="utf-8" />
-		<meta name="description" content="iDELO" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
-		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-		<!--<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>-->
-		<link href="css/main.css" rel="stylesheet" type="text/css">
-		
-	</head>
-	
+<head>
+    <title>Home page | iDELO</title>
+
+    <meta charset="utf-8"/>
+    <meta name="description" content="iDELO"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <!--<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>-->
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"
+          href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
+</head>
+
 <body>
-	
-    <div class="brand">iDELO</div>
-    	<div class="container">
-			<div class="navbar">
-  				<div class="navbar-inner">
-                <ul class="nav navbar-nav">
-                    <li><a id="navlink" href="home.html"><b>Home</b></a>
-                    </li>
-                    <li><a id="navlink" href="about.html"><b>About</b></a>
-                    </li>
-                    <li><a id="navlink" href="list.html"><b>Complaints List</b></a>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">	
-					<li>
-						<form class="navbar-form navbar-right" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="butn">Submit</button>
-						</form>	
-					</li>
-					<li><a id="navlink" href="myprofile.html"><b>My profile</b></a>
-					</li>
-				</ul>	
-				</div>
-			</div>	
-		</div>
-		</div>
-	<div id="expandpanel">
-	<div class="col-md-3">
-	<a data-toggle="collapse" href="#collapseUser" style="text-decoration:none;"><h5><b class="firstList">List of citizens</b></h5></a>
-		</br>	
-	<a data-toggle="collapse" href="#collapseComp" style="text-decoration:none;"><h5><b class="firstList">List of Complains</b></h5></a>	
-	</div>
-	<div class="col-md-2">
-		<div id="collapseUser" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-					<ul class="myCompUl">
-						<li>
-							<p class="listofname" data-toggle="collapse" href="#BobBobsen">Bob Bobsen</p>
-						</li>
-						<li>
-							<p class="listofname" data-toggle="collapse" href="#DerpDerpson">Derp Derpson</p>
-						</li>
-						<li>
-							<p class="listofname" data-toggle="collapse" href="#HerpHerpson">Herp Herpson</p>
-						</li>
-						<li>
-							<p class="listofname" data-toggle="collapse" href="#TomThompson">Tom Thomson</p>
-						</li>
-					</ul>
-				</div>
-			</div>
-	</div>
-		
-		<div id="collapseComp" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-					<ul class="myCompUl">
-						<li>
-							<p data-toggle="collapse" href="#collapseComp1" class="listofname">I got attacked</p>
-						</li>
-						<li>
-							<p data-toggle="collapse" href="#collapseComp2" class="listofname">Scammer</p>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-7">	
-	<!--<h5><button id="newCom" type="button" class="butn">Add New</button></h5>-->
-	<!------------------------------------------------------------------------------------------------------------------------------------>
-		<div id="BobBobsen" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-					
-		  <table cellspacing="0">
-			<tr>
-				<td><p class="textColor">Name</p></td><td>&nbsp</td><td><p id="userName">&nbsp;Bob Bobsen</p></td>
-			</tr>  
-		  	<tr>
-				<td><p class="textColor">Sex</p></td><td>&nbsp</td><td><p id="userSex">&nbsp;Male</p></td>
-			</tr>
 
-		  	<tr>
-				<td><p class="textColor">Birth date</p></td><td>&nbsp</td><td><p id="userAge">&nbsp;01.01.90</p></td>
-			</tr>
+<div class="brand">iDELO</div>
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav navbar-nav">
+                <li><a class="navlink" href="home.html"><b>Home</b></a>
+                </li>
+                <li><a class="navlink" href="about.html"><b>About</b></a>
+                </li>
+                <li><a class="navlink" href="list.html"><b>Complaints List</b></a>
+                </li>
+                <li><a class="navlink" href="newComp.html"><b>New Complaint</b></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="navlink" href="myprofile.html"><b>My profile</b></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-		  	<tr>
-				<td><p class="textColor">Aadress</p></td><td>&nbsp</td><td><p id="userAadress">&nbsp;middle of nowhere 3</p></td>
-			</tr>
-						
-			<tr>
-				<td id="userPic"><img class="foto" src="img/pic1.jpg"></td>
-			</tr>
-			  
-	 	  </table>
-		  </br> 	
-      			</div>
-    		</div>
-  		</div>
+<div class="container">
+    <form id="search-form" class="navbar-form" role="search">
+        <div class="form-group">
+            <input class="form-control search-field" name="name" type="text" placeholder="Search for...">
+            <input class="form-control search-field" style="display: none;" name="title" type="text"
+                   placeholder="by title">
+            <input class="form-control search-field" style="display: none;" name="description" type="text"
+                   placeholder="by details">
+            <input class="form-control search-field" style="display: none;" name="tag" type="text" placeholder="by tag">
+            <input class="btn-success" type="submit" value="Search"/>
 
-		<div id="DerpDerpson" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-					
-					<table cellspacing="0">
-			<tr>
-				<td><p class="textColor">Name</p></td><td>&nbsp</td><td><p id="userName">&nbsp;Derp Derpson</p></td>
-			</tr>  
-		  	<tr>
-				<td><p class="textColor">Sex</p></td><td>&nbsp</td><td><p id="userSex">&nbsp;Male</p></td>
-			</tr>
+            <p style="font-size:10px; margin-top:1px; margin-bottom:1px;">&nbsp;&nbsp;&nbsp;
+                <a id="advanced-search-link" class="navlink" href="#">
+                    <b>switch to
+                        <span class="adv-search-text">advanced search</span>
+                    </b>
+                </a>
+            </p>
+        </div>
+    </form>
 
-		  	<tr>
-				<td><p class="textColor">Birth date</p></td><td>&nbsp</td><td><p id="userAge">&nbsp;01.01.86</p></td>
-			</tr>
+    <div class="col-md-6">
+        <table id="all_complaints_list" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Citizen</th>
+                <th>Title</th>
+                <th>Tag</th>
+                <th>Location</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-		  	<tr>
-				<td><p class="textColor">Aadress</p></td><td>&nbsp</td><td><p id="userAadress">&nbsp;Somwhere</p></td>
-			</tr>
-						
-			<tr>
-				<td id="userPic"><img class="foto" src="img/pic2.png"></td>
-			</tr>
-						
-		  </table>
-		  </br>		
-      			</div>
-    		</div>
-  		</div>
-		
-		<div id="HerpHerpson" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-					
-					<table cellspacing="0">
-			<tr>
-				<td><p class="textColor">Name</p></td><td>&nbsp</td><td><p id="userName">&nbsp;Herp Herpson</p></td>
-			</tr>  
-		  	<tr>
-				<td><p class="textColor">Sex</p></td><td>&nbsp</td><td><p id="userSex">&nbsp;Male</p></td>
-			</tr>
+    <div id="user_complaints_full" class="col-md-6">
+        <div class="row">
+            <div id="expandpanel2">
+                <table cellspacing="0">
+                    <tr>
+                        <td><p class="textColor">Complaint Header</p></td>
+                        <td><p>&nbsp;</p></td>
+                        <td><p id="compHead"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="textColor">Type of complaint</p></td>
+                        <td><p>&nbsp;</p></td>
+                        <td><p id="compTag"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="textColor">Date/Time</p></td>
+                        <td><p>&nbsp;</p></td>
+                        <td><p id="compDate"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="textColor">Aadress</p></td>
+                        <td>&nbsp;</td>
+                        <td><p id="compAadress"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="textColor">Details</p></td>
+                        <td><p>&nbsp;</p></td>
+                        <td><p id="compDet"></p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="textColor">Images</p></td>
+                        <td><p>&nbsp;</p></td>
+                        <td>
+                            <div id="compImg"></div>
+                        </td>
+                    </tr>
 
-		  	<tr>
-				<td><p class="textColor">Birth date</p></td><td>&nbsp</td><td><p id="userAge">&nbsp;01.01.90</p></td>
-			</tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-		  	<tr>
-				<td><p class="textColor">Aadress</p></td><td>&nbsp</td><td><p id="userAadress">&nbsp;middle of nowhere 1</p></td>
-			</tr>
-						
-			<tr>
-				<td id="userPic"><img class="foto" src="img/pic3.png"></td>
-			</tr>
-						
-		  </table>
-		  </br>	
-      			</div>
-    		</div>
-  		</div>
-		
-		<div id="TomThompson" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-					
-					<table cellspacing="0">
-			<tr>
-				<td><p class="textColor">Name</p></td><td>&nbsp</td><td><p id="userName">&nbsp;Tom Thoompson</p></td>
-			</tr>  
-		  	<tr>
-				<td><p class="textColor">Sex</p></td><td>&nbsp</td><td><p id="userSex">&nbsp;Male</p></td>
-			</tr>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/plug-ins/e9421181788/api/fnReloadAjax.js"></script>
+<script type="text/javascript">
+    function initTable() {
+        return $('#all_complaints_list').dataTable({
+            "paging": false,
+            "info": false,
+            "searching": false,
+            "aoColumnDefs": [
+//                {"sWidth": "20%", "aTargets": [ 0 ] },
+//                {"sWidth": "10%", "aTargets": [2], "bSortable": false }
+            ],
+            "ajax": "/cgi-bin/search.py?type=simple",
+            "columns": [
+                {"data": "time"},
+                {"data": "name"},
+                {"data": "title"},
+                {"data": "tag"},
+                {"data": "location"},
+                {"data": "id", "render": function (data, type, row) {
+                    return"<span onclick='glyphClickEvent(this, " + data + ");' class=\"glyphicon glyphicon-play\"></span>";
+                } }
+            ]
+        });
+    }
+    var oTable;
+    $(document).ready(function () {
+        oTable = initTable();
 
-		  	<tr>
-				<td><p class="textColor">Birth date</p></td><td>&nbsp</td><td><p id="userAge">&nbsp;01.01.87</p></td>
-			</tr>
+        var simple_search = true;
 
-		  	<tr>
-				<td><p class="textColor">Aadress</p></td><td>&nbsp</td><td><p id="userAadress">&nbsp;Moolvania main 7</p></td>
-			</tr>
-						
-			<tr>
-				<td id="userPic"><img class="foto" src="img/pic4.png"></td>
-			</tr>			
-						
-		  </table>
-		  </br>
-				</div>
-    		</div>
-  		</div>
+        $('#search-form').submit(function () {
+            var url = '';
+            var q = '';
+            if (simple_search) {
+                q = $('input[name=name]').val();
+                url = '/cgi-bin/search.py?type=simple&q=' + q;
+            } else {
+                var fields = ['title', 'tag', 'description', 'name'];
+                var arr = [];
+                for (var i in fields) {
+                    arr.push(fields[i] + '=' + $('input[name=' + fields[i] + ']').val());
+                }
+                url = '/cgi-bin/search.py?type=adv&' + arr.join('&');
+            }
 
-		<div id="" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-					<table cellspacing="0">
-						<tr>
-							<td><p class="textColor">Name</p></td><td>&nbsp</td><td><p id="userName">&nbsp;</p></td>
-						</tr>  
-		  				<tr>
-							<td><p class="textColor">Sex</p></td><td>&nbsp</td><td><p id="userSex">&nbsp;</p></td>
-						</tr>
-		  				<tr>
-							<td><p class="textColor">Birth date</p></td><td>&nbsp</td><td><p id="userAge">&nbsp;</p></td>
-						</tr>
-		  				<tr>
-							<td><p class="textColor">Aadress</p></td><td>&nbsp</td><td><p id="userAadress">&nbs;</p></td>
-						</tr>		
-						<tr>
-							<td id="userPic"><img class="foto" src=""></td>
-						</tr>		
-		  			</table>
-		  			</br>		
-      			</div>
-    		</div>
-  		</div>
-<!---------------------------------------------------------------------------------------------------------------------------------------->
+            oTable.fnReloadAjax(url);
 
-<!-------------------------------------------------------COMPLAINTS----------------------------------------------------------------------->
+            return false;
+        });
 
-		<div id="collapseComp1" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-
-       <table cellspacing="0">
-			<tr>
-				<td><p class="textColor">Complaint Header</p></td><td><p>&nbsp;</p></td><td><p id="compHead">&nbsp;Scam</p></td>
-			</tr>
-
-		   <tr>
-				<td><p class="textColor">Citizen</p></td><td><p>&nbsp;</p></td><td><p id="compUser">&nbsp;Derp Derpson</p></td>
-			</tr>
-		   
-		  	<tr>
-				<td><p class="textColor">Type of complaint</p></td><td><p>&nbsp;</p></td><td><p id="compTag">&nbsp;#scam</p></td>
-			</tr>
-
-		  	<tr>
-				<td><p class="textColor">Date/Time</p></td><td><p>&nbsp;</p></td><td><p id="compDate">&nbsp;11/12/13 14:15:16</p></td>
-			</tr>
-		   
-		   <tr>
-				<td><p class="textColor">Aadress</p></td><td>&nbsp;</td><td><p id="compAadress">&nbsp;Planet Earth</p></td>
-			</tr>
-		   
-		   <tr>
-				<td><p class="textColor">Details</p></td><td><p>&nbsp;</p></td><td><p id="compDet">&nbsp;I paid him money, he run away</p></td>
-			</tr>
-		  </table>
-		  </br>
-				</div>
-			</div>
-		</div>
-		<!--<div class="row">
-			<div id="mapcanvas">  
-		<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;q=Embassy+of+Iran&amp;cid=0xa0951df2a5935d23&amp;ie=UTF8&amp;hq=Embassy+of+Iran&amp;hnear=&amp;ll=34.528505,69.175009&amp;spn=0,0&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://www.google.com/maps?t=m&amp;q=Embassy+of+Iran&amp;cid=0xa0951df2a5935d23&amp;ie=UTF8&amp;hq=Embassy+of+Iran&amp;hnear=&amp;ll=34.528505,69.175009&amp;spn=0,0&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
-		</div>
-		</div> -->
-
-		<div id="collapseComp2" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-
-       <table cellspacing="0"> 
-		   
-		  	<tr>
-				<td><p class="textColor">Complaint Header</p></td><td><p>&nbsp;</p></td><td><p id="compHead">&nbsp;I got attacked</p></td>
-			</tr>
-
-		   <tr>
-				<td><p class="textColor">Citizen</p></td><td><p>&nbsp;</p></td><td><p id="compUser">&nbsp;Herp Herpson</p></td>
-			</tr>
-		   
-		  	<tr>
-				<td><p class="textColor">Type of complaint</p></td><td><p>&nbsp;</p></td><td><p id="compTag">&nbsp;#attack</p></td>
-			</tr>
-
-		  	<tr>
-				<td><p class="textColor">Date/Time</p></td><td><p>&nbsp;</p></td><td><p id="compDate">&nbsp;12/12/12 12:12:12</p></td>
-			</tr>
-		   
-		   <tr>
-				<td><p class="textColor">Aadress</p></td><td>&nbsp;</td><td><p id="compAadress">&nbsp;21st Eastside</p></td>
-			</tr>
-		   
-		   <tr>
-				<td><p class="textColor">Details</p></td><td><p>&nbsp;</p></td><td><p id="compDet">&nbsp;I was chillin' right around my way
-21st Eastside at a beach
-This lil' fool ran up on me
-Poppin' off wit his homies like he was a straight G
-
-Askin' where I'm from while he runnin' up
-Bang my sound, nag one of them
-Some things, son, they just don't change
-Fools don't respect nothin' but to *** bang</p></td>
-			</tr>
-		  </table>
-		  </br>
-				</div>
-			</div>
-		</div>	
-
-		<!--<div class="row">
-			<div id="mapcanvas">
-				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;sll=34.0485125,-118.2447313&amp;sspn=0.0068272,0.0109864&amp;q=198+E+3rd+St&amp;ie=UTF8&amp;hq=&amp;hnear=198+E+3rd+St,+Los+Angeles,+California+90013&amp;ll=34.048506,-118.244737&amp;spn=0.008801,0.01929&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://www.google.com/maps?t=m&amp;sll=34.0485125,-118.2447313&amp;sspn=0.0068272,0.0109864&amp;q=198+E+3rd+St&amp;ie=UTF8&amp;hq=&amp;hnear=198+E+3rd+St,+Los+Angeles,+California+90013&amp;ll=34.048506,-118.244737&amp;spn=0.008801,0.01929&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
-		</div>  
-		</div> -->
-
-		<div id="collapseComp1" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-					<table cellspacing="0"> 
-						<tr>
-							<td><p class="textColor">Complaint Header</p></td><td><p>&nbsp</p></td><td><p id="compHead"></p></td>
-						</tr>
-		   				<tr>
-							<td><p class="textColor">Citizen</p></td><td><p>&nbsp</p></td><td><p id="compUser"></p></td>
-						</tr>	   
-		  				<tr>
-							<td><p class="textColor">Type of complaint</p></td><td><p>&nbsp</p></td><td><p id="compTag"></p></td>
-						</tr>
-		  				<tr>
-							<td><p class="textColor">Date/Time</p></td><td><p>&nbsp</p></td><td><p id="compDate"></p></td>
-						</tr>
-		   				<tr>
-							<td><p class="textColor">Aadress</p></td><td>&nbsp;</td><td><p id="compAadress"></p></td>
-						</tr>
-		   				<tr>
-							<td><p class="textColor">Details</p></td><td><p>&nbsp</p></td><td><p id="compDet"></p></td>
-						</tr>
-		  			</table>
-		  			</br>
-				</div>
-			</div>
-		</div>
-
-	</div>	
-	</div>
-<!---------------------------------------------------------------------------------------------------------------------------------------->
-
-  
-	  
-<!---------------------------------------------------------------------------------------------------------------------------------------->	  
-	  
-   
-
-<!---------------------------------------------------------------------------------------------------------------------------------------->
+        $('#advanced-search-link').click(function () {
+            var text_span = $('span.adv-search-text');
+            if (!text_span.hasClass('enabled')) {
+                text_span.text('simple search');
+                text_span.addClass('enabled');
+                $('input[name=name]').attr('placeholder', 'by citizen');
+                $('input[name!=name][type=text]').fadeIn();
+            } else {
+                text_span.text('advanced search');
+                text_span.removeClass('enabled');
+                $('input[name=name]').attr('placeholder', 'Search for...');
+                $('input[name!=name][type=text]').fadeOut();
+            }
+            simple_search = !simple_search;
+            return false;
+        });
+    });
 
 
-<!------------------------------------------------------------------------------------------
-
-
-    <!-- JavaScript -->
-	
-    <script src="js/jquery.js"></script>
-	<script src="js/jquery.validate.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+</script>
 
 </body>
 

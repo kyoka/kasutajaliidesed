@@ -31,28 +31,21 @@
 <body>
 
 <div class="brand">iDELO</div>
-<!--<div class="address-bar">The Plaza | 5483 Start Bootstrap Ave. | Beverly Hills, California 26892 | 555.519.2013</div>-->
 <div class="container">
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav navbar-nav">
-                <li><a id="navlink" href="home.html"><b>Home</b></a>
+                <li><a class="navlink" href="home.html"><b>Home</b></a>
                 </li>
-                <li><a id="navlink" href="about.html"><b>About</b></a>
+                <li><a class="navlink" href="about.html"><b>About</b></a>
                 </li>
-                <li><a id="navlink" href="list.html"><b>Complaints List</b></a>
+                <li><a class="navlink" href="list.html"><b>Complaints List</b></a>
+                </li>
+                <li><a class="navlink" href="newComp.html"><b>New Complaint</b></a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <form class="navbar-form" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="butn">Submit</button>
-                    </form>
-                </li>
-                <li><a id="navlink" href="myprofile.html"><b>My profile</b></a>
+                <li><a class="navlink" href="myprofile.html"><b>My profile</b></a>
                 </li>
             </ul>
         </div>
@@ -162,11 +155,9 @@
         </div>
         <!----->
     </div>
-    </br></br>
 
 
 </div>
-</br>
 
 <!-- JavaScript -->
 <script src="js/jquery.js"></script>
@@ -178,49 +169,6 @@
 
 <script type="text/javascript">
     var user = {};
-
-
-    function renderComplaint(complaint_id) {
-        $.getJSON("/cgi-bin/complaint.py?c=id&v=" + complaint_id, function (data) {
-            data = data.data[0];
-            window.data = data;
-            $('#compHead').text(data.title);
-            $('#compDet').text(data.description);
-            $('#compDate').text(data.time);
-            $('#compTag').text(data.tag);
-            $('#compAadress').text(data.location);
-            $('#compImg').empty();
-            if (data.images) {
-                $(data.images.split(',')).each(function (index, value) {
-                    var div = $('<div></div>').addClass('col-md-4');
-                    $('<img>', {
-                        src: '/img/' + value,
-                        alt: ''
-                    })
-                            .addClass('img-rounded')
-                            .addClass('complaint-image')
-                            .appendTo(div);
-                    $('#compImg').append(div);
-                });
-            }
-
-            $('#user_complaints_full').slideDown();
-        });
-
-    }
-    function glyphClickEvent(glyph, complaint_id) {
-        var glyph = $(glyph);
-        var complain_div = $('#user_complaints_full');
-        if (glyph.hasClass('active-glyph')) {
-            glyph.removeClass('active-glyph');
-            complain_div.slideUp();
-        } else {
-            $('.active-glyph').removeClass('active-glyph');
-            glyph.addClass('active-glyph');
-            complain_div.slideUp();
-            renderComplaint(complaint_id);
-        }
-    }
 
     $(document).ready(function () {
 
@@ -248,7 +196,7 @@
                     return"<span onclick='glyphClickEvent(this, " + data + ");' class=\"glyphicon glyphicon-play\"></span>";
                 } }
             ]
-        })
+        });
     });
 </script>
 </body>

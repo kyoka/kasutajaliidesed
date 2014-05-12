@@ -119,3 +119,47 @@ $(document).ready(function () {
     });
 
 });
+
+
+function renderComplaint(complaint_id) {
+    $.getJSON("/cgi-bin/complaint.py?c=id&v=" + complaint_id, function (data) {
+        data = data.data[0];
+        window.data = data;
+        $('#compHead').text(data.title);
+        $('#compDet').text(data.description);
+        $('#compDate').text(data.time);
+        $('#compTag').text(data.tag);
+        $('#compAadress').text(data.location);
+        $('#compImg').empty();
+        if (data.images) {
+            $(data.images.split(',')).each(function (index, value) {
+                var div = $('<div></div>').addClass('col-md-4');
+                $('<img>', {
+                    src: '/img/' + value,
+                    alt: ''
+                })
+                    .addClass('img-rounded')
+                    .addClass('complaint-image')
+                    .appendTo(div);
+                $('#compImg').append(div);
+            });
+        }
+
+        $('#user_complaints_full').slideDown();
+    });
+
+}
+function glyphClickEvent(glyph, complaint_id) {
+    var glyph = $(glyph);
+    var complain_div = $('#user_complaints_full');
+    if (glyph.hasClass('active-glyph')) {
+        glyph.removeClass('active-glyph');
+        complain_div.slideUp();
+    } else {
+        $('.active-glyph').removeClass('active-glyph');
+        glyph.addClass('active-glyph');
+        complain_div.slideUp(function () {
+            renderComplaint(complaint_id);
+        });
+    }
+}
