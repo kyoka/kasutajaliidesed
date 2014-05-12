@@ -49,7 +49,7 @@
 <script type="text/javascript">
     function glyphClickEvent(glyph) {
         var glyph = $(glyph);
-        if(glyph.hasClass('active-glyph')) {
+        if (glyph.hasClass('active-glyph')) {
             glyph.removeClass('active-glyph');
         } else {
             $('.active-glyph').removeClass('active-glyph');
@@ -57,8 +57,8 @@
         }
     }
 
-    $(document).ready(function() {
-        var def = $('#user_complaints').dataTable({
+    $(document).ready(function () {
+        $('#user_complaints').dataTable({
             "paging": false,
             "info": false,
             "searching": false,
@@ -74,7 +74,6 @@
                     "defaultContent": "<span onclick='glyphClickEvent(this);' class=\"glyphicon glyphicon-play\"></span>" }
             ]
         });
-        console.log(def);
 
 //        $.getJSON('/cgi-bin/complaint.py?c=user_id&v=1', function(result) {
 //            alert(result)

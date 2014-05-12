@@ -8,7 +8,8 @@ databasefile = 'mydb.db'
 
 print 'Content-type: text/html'
 print
-
+import pydevd
+pydevd.settrace('localhost', port=12345, stdoutToServer=True, stderrToServer=True, suspend=False)
 try: # Windows needs stdio set for binary mode.
     import msvcrt
 
@@ -21,7 +22,7 @@ try:
     if (form.has_key('full_name')
         and form.has_key('email')
         and form.has_key('password')):
-        file = form['photo'] if 'photo' in form else None
+        files = form['photo'] if 'photo' in form else None
         values = {
             'email': form['email'].value,
             'password': form['password'].value,

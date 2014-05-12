@@ -28,6 +28,17 @@ try:
             columns.append(k)
             vals.append(v)
 
+                # Test if the file was uploaded]
+        if files is not None:
+            if not isinstance(files, list):
+                files = [files]
+            for file in files:
+                if file.filename:
+                    # strip leading path from file name to avoid directory traversal attacks
+                    fn = os.path.basename(file.filename)
+                    open('img/' + fn, 'wb').write(file.file.read())
+                    query = 'insert into user_photo values (?, ?);'
+                    cur.execute(query,(id, fn))
         query = ("insert into complaint(%s) values (%s)" %
                  (','.join(columns), ','.join(vals)))
 

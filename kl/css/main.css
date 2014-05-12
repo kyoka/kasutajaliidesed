@@ -8,6 +8,18 @@
     color: #530FAD;
 }
 
+td {
+    text-align: center;
+}
+
+.glyphicon {
+    font-size: 20px;
+}
+
+.active-glyph {
+    color: #09ff00;
+}
+
 body {
     background: url(../img/b.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -185,11 +197,10 @@ footer p {
     margin-left: 20px;
 }
 
-#expandpanel {
-    font-family: sans-serif Comic Sans;
-    margin-left: 70px;
-    /*margin-right: 45px;*/
+#user_complaints_div {
+    font-family: sans-serif Comic Sans, serif;
     color: #530FAD;
+    max-width: 600px;
 }
 
 #expandpanel1 {
@@ -241,4 +252,12 @@ footer p {
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 
+}
+
+#user_complaints_full {
+    display: none;
+}
+
+.complaint-image {
+    width: 180px;
 }

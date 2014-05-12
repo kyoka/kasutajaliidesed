@@ -26,12 +26,10 @@ def jsonstr(data):
 
 try:
     form = cgi.FieldStorage()
-    query = 'select * from complaint'
+    query = 'select c.*,  GROUP_CONCAT(file_name) as images from complaint c left join complaint_photo cp on c.id=cp.complaint_id'
     if form.has_key('c') and form.has_key('v'):
-        #print form['id'].value
-        query += " where %s = %s" % (form['c'].value, form['v'].value)
-        #query = "select * from books"
-        #print query
+        query += " where c.%s = %s" % (form['c'].value, form['v'].value)
+    query += " group by complaint_id"
     con = sqlite.connect(databasefile)
     con.row_factory = sqlite.Row
     con.text_factory = str

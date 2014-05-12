@@ -1,161 +1,253 @@
 <!doctype html>
 
 <html lang="en">
-	<head>
-		<title>Home page | iDELO</title>
-		
-		<meta charset="utf-8" />
-		<meta name="description" content="iDELO" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
-		<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-		<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
-		<link href="css/main.css" rel="stylesheet" type="text/css">
-		
-	</head>
-	
+<head>
+    <title>Home page | iDELO</title>
+
+    <meta charset="utf-8"/>
+    <meta name="description" content="iDELO"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"
+          href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
+    <style type="text/css">
+        td {
+            text-align: center;
+        }
+
+        .glyphicon {
+            font-size: 20px;
+        }
+
+        .active-glyph {
+            color: #09ff00;
+        }
+    </style>
+</head>
+
 <body>
-	
-    <div class="brand">iDELO</div>
-    <!--<div class="address-bar">The Plaza | 5483 Start Bootstrap Ave. | Beverly Hills, California 26892 | 555.519.2013</div>-->
-        <div class="container">
-			<div class="navbar">
-  				<div class="navbar-inner">
-                <ul class="nav navbar-nav">
-                    <li><a id="navlink" href="home.html"><b>Home</b></a>
-                    </li>
-                    <li><a id="navlink" href="about.html"><b>About</b></a>
-                    </li>
-                    <li><a id="navlink" href="list.html"><b>Complaints List</b></a>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">	
-					<li>
-						<form class="navbar-form" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="butn" >Submit</button>
-						</form>	
-					</li>
-					<li><a id="navlink" href="myprofile.html"><b>My profile</b></a>
-					</li>
-				</ul>	
-				</div>
-			</div>	
-		</div>
-	
-	
-	
-	</br></br></br>
-<div class="row" id="myprofile">
-	<div class="row">
-	<div class="col-md-1">
-	</div>
-	<div class="col-md-4">
-        <h4 id="nameHead"><b>Herp Herpson</b></h4>
+
+<div class="brand">iDELO</div>
+<!--<div class="address-bar">The Plaza | 5483 Start Bootstrap Ave. | Beverly Hills, California 26892 | 555.519.2013</div>-->
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav navbar-nav">
+                <li><a id="navlink" href="home.html"><b>Home</b></a>
+                </li>
+                <li><a id="navlink" href="about.html"><b>About</b></a>
+                </li>
+                <li><a id="navlink" href="list.html"><b>Complaints List</b></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="butn">Submit</button>
+                    </form>
+                </li>
+                <li><a id="navlink" href="myprofile.html"><b>My profile</b></a>
+                </li>
+            </ul>
+        </div>
     </div>
-	</div>	
+</div>
+
+
+</br></br></br>
+<div class="row" id="myprofile">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+            <h4 id="nameHead"><b>Herp Herpson</b></h4>
+            </br>
+            <table>
+                <tr>
+                    <td><img class="foto" src="img/pic3.png"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><p class="textColor">Sex</p></td>
+                                <td>&nbsp</td>
+                                <td><p id="userSex">&nbsp;Male</p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p class="textColor">Birth date</p></td>
+                                <td>&nbsp</td>
+                                <td><p id="userAge">&nbsp;01.01.90</p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p class="textColor">Aadress</p></td>
+                                <td>&nbsp</td>
+                                <td><p id="userAadress">&nbsp;middle of nowhere 1</p></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            </br>
+            <div id="expandpanel">
+                <h4 data-toggle="collapse" data-parent="#accordion" href="#user_complaints_div"><b class="myComp">My
+                    Complaints</b></h4>
+            </div>
+            <div id="user_complaints_div" class="collapse">
+                <table id="user_complaints" class="display" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!----->
+        <div id="user_complaints_full" class="col-md-6">
+            <div class="row">
+                <div id="expandpanel2">
+                    <table cellspacing="0">
+                        <tr>
+                            <td><p class="textColor">Complaint Header</p></td>
+                            <td><p>&nbsp;</p></td>
+                            <td><p id="compHead"></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="textColor">Type of complaint</p></td>
+                            <td><p>&nbsp;</p></td>
+                            <td><p id="compTag"></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="textColor">Date/Time</p></td>
+                            <td><p>&nbsp;</p></td>
+                            <td><p id="compDate"></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="textColor">Aadress</p></td>
+                            <td>&nbsp;</td>
+                            <td><p id="compAadress"></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="textColor">Details</p></td>
+                            <td><p>&nbsp;</p></td>
+                            <td><p id="compDet"></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="textColor">Images</p></td>
+                            <td><p>&nbsp;</p></td>
+                            <td>
+                                <div id="compImg"></div>
+                            </td>
+                        </tr>
+
+                    </table>
+                    </br>
+                </div>
+            </div>
+        </div>
+        <!----->
+    </div>
+    </br></br>
+
+
+</div>
 </br>
-<div class="row">
-	<div class="col-md-1">
-	</div>	
-	<div class="col-md-2">
-		  <img class="foto" src="img/pic3.png">
-	</div> 	
-      <div class="col-md-4">
-       <table>  
-		  	<tr>
-				<td><p class="textColor">Sex</p></td><td>&nbsp</td><td><p id="userSex">&nbsp;Male</p></td>
-			</tr>
 
-		  	<tr>
-				<td><p class="textColor">Birth date</p></td><td>&nbsp</td><td><p id="userAge">&nbsp;01.01.90</p></td>
-			</tr>
+<!-- JavaScript -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
 
-		  	<tr>
-				<td><p class="textColor">Aadress</p></td><td>&nbsp</td><td><p id="userAadress">&nbsp;middle of nowhere 1</p></td>
-			</tr>
-		</table> 
-      </div>
-	  <div class="col-md-6">
-		  <div id="collapseComp2" class="panel-collapse collapse">
-			<div class="row">
-				<div id="expandpanel2">
-
-       <table cellspacing="0"> 
-		   
-		  	<tr>
-				<td><p class="textColor">Complaint Header</p></td><td><p>&nbsp;</p></td><td><p id="compHead">&nbsp;I got attacked</p></td>
-			</tr>
-
-		   <tr>
-				<td><p class="textColor">Citizen</p></td><td><p>&nbsp;</p></td><td><p id="compUser">&nbsp;Herp Herpson</p></td>
-			</tr>
-		   
-		  	<tr>
-				<td><p class="textColor">Type of complaint</p></td><td><p>&nbsp;</p></td><td><p id="compTag">&nbsp;#attack</p></td>
-			</tr>
-
-		  	<tr>
-				<td><p class="textColor">Date/Time</p></td><td><p>&nbsp;</p></td><td><p id="compDate">&nbsp;12/12/12 12:12:12</p></td>
-			</tr>
-		   
-		   <tr>
-				<td><p class="textColor">Aadress</p></td><td>&nbsp;</td><td><p id="compAadress">&nbsp;21st Eastside</p></td>
-			</tr>
-		   
-		   <tr>
-				<td><p class="textColor">Details</p></td><td><p>&nbsp;</p></td><td><p id="compDet">&nbsp;I was chillin' right around my way
-21st Eastside at a beach
-This lil' fool ran up on me
-Poppin' off wit his homies like he was a straight G
-
-Askin' where I'm from while he runnin' up
-Bang my sound, nag one of them
-Some things, son, they just don't change
-Fools don't respect nothin' but to *** bang</p></td>
-			</tr>
-		  </table>
-		  </br>
-				</div>
-			</div>
-		</div>
-	  </div>  
-</div>
-</br></br>
-<div id="expandpanel">
-	<h4 data-toggle="collapse" data-parent="#accordion" href="#collapseOne" ><b class="myComp">My Complaints</b></h4>
-</div>
-<div id="expandpanel">
-<div id="collapseOne" class="panel-collapse collapse">
-		<div id="expandpanel1">
-			<ul class="myCompUl">
-				<li><p data-toggle="collapse" href="#collapseComp2" class="myComp">I got attacked</p></li>
-			</ul>
-		</div>
-</div>
-</div>
-</div>
-</br>
-
-    <!-- JavaScript -->
-    <script src="js/jquery.js"></script>
-	<script src="js/jquery.validate.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $.post('/cgi-bin/user.py', {'cmd': 'profile', 'id': getCookie('user_id')}, function (result) {
-            console.log(result);
-            result['name'];
-            result['birthdate'];
-            result['address'];
-            result['sex'];
-            result['file_name'];
+    var user = {};
+
+
+    function renderComplaint(complaint_id) {
+        $.getJSON("/cgi-bin/complaint.py?c=id&v=" + complaint_id, function (data) {
+            data = data.data[0];
+            window.data = data;
+            $('#compHead').text(data.title);
+            $('#compDet').text(data.description);
+            $('#compDate').text(data.time);
+            $('#compTag').text(data.tag);
+            $('#compAadress').text(data.location);
+            if (data.images) {
+                $(data.images.split(',')).each(function (index, value) {
+                    var div = $('<div></div>').addClass('col-md-4');
+                    $('<img>', {
+                        src: '/img/' + value,
+                        alt: ''
+                    })
+                            .addClass('img-rounded')
+                            .addClass('complaint-image')
+                            .appendTo(div);
+                    $('#compImg').append(div);
+                });
+            }
+
+            $('#user_complaints_full').slideDown();
         });
 
+    }
+    function glyphClickEvent(glyph, complaint_id) {
+        var glyph = $(glyph);
+        var complain_div = $('#user_complaints_full');
+        if (glyph.hasClass('active-glyph')) {
+            glyph.removeClass('active-glyph');
+            complain_div.slideUp();
+        } else {
+            $('.active-glyph').removeClass('active-glyph');
+            glyph.addClass('active-glyph');
+            complain_div.slideUp();
+            renderComplaint(complaint_id);
+        }
+    }
+
+    $(document).ready(function () {
+
+        $.post('/cgi-bin/user.py', {'cmd': 'profile', 'id': getCookie('user_id')}, function (result) {
+            user.name = result['name'];
+            user.birthdate = result['birthdate'];
+            user.address = result['address'];
+            user.sex = result['sex'];
+            user.image = result['file_name'];
+        });
+
+        $('#user_complaints').dataTable({
+            "paging": false,
+            "info": false,
+            "searching": false,
+            "aoColumnDefs": [
+                {"sWidth": "20%", "aTargets": [ 0 ] },
+                {"sWidth": "10%", "aTargets": [2], "bSortable": false }
+            ],
+            "ajax": "/cgi-bin/complaint.py?c=user_id&v=" + getCookie('user_id'),
+            "columns": [
+                {"data": "time"},
+                {"data": "title"},
+                {"data": "id", "render": function (data, type, row) {
+                    return"<span onclick='glyphClickEvent(this, " + data + ");' class=\"glyphicon glyphicon-play\"></span>";
+                } }
+            ]
+        })
     });
 </script>
 </body>
