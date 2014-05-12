@@ -20,8 +20,8 @@ insert into complaint(title,user_id, tag, description) values('Title 1',1, 'myta
 create table user(
 id integer primary key,
 name varchar(70),
-email varchar(60).
-password varchar(30).
+email varchar(60),
+password varchar(30),
 sex varchar(6),
 birthdate date,
 address varchar(100),

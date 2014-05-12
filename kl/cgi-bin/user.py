@@ -1,9 +1,11 @@
 #!/usr/bin/python
+import json
 import sys
 import cgi
 import sqlite3 as sqlite
+import itertools
 
-databasefile = 'data.db'
+databasefile = 'mydb.db'
 fields = ['id', 'full_name', 'sex', 'birthdate',
           'address', 'photo', 'is_admin', 'email', 'password']
 
@@ -22,40 +24,22 @@ def jsonstr(data):
         return "\"\""
 
 
+
 try:
     form = cgi.FieldStorage()
-    if form.has_key('id'):
-        query = "select * from user where id = " + form['id'].value
-        con = sqlite.connect(databasefile)
-        cur = con.cursor()
-        cur.execute(query)
+    if form.has_key('cmd'):
+        if form['cmd'].value == 'profile' and form.has_key('id'):
+            query = "select * from user u left join user_photo up on u.id=up.user_id " \
+                    "where u.id = " + form['id'].value
+            con = sqlite.connect(databasefile)
+            con.row_factory = sqlite.Row
+            con.text_factory = str
 
-        res = []
-        while 1:
-            row = cur.fetchone()
-            if not row:
-                break
-            res = res + [row]
-
-        l = len(res)
-        i = 0
-
-        print "["
-        for row in res:
-            print "{",
-            counter = 0
-            for data in row[0:-1]:
-                print "\"" + fields[counter] + "\":", jsonstr(data),
-                counter = counter + 1
-                print ",",
-            print "\"" + fields[counter] + "\":", jsonstr(data),
-            print "}",
-            if i < l - 1:
-                print ","
-            i = i + 1
-
-        print
-        print "]"
+            cur = con.cursor()
+            cur.execute(query)
+            user = cur.fetchone()
+            res = {'data': dict(itertools.izip(user.keys(), user))}
+            print json.dumps(res)
     else:
         print "0"
 

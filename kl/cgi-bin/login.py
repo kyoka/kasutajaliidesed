@@ -8,6 +8,7 @@ databasefile = 'mydb.db'
 
 print 'Content-type: text/plain'
 print
+
 try:
     form = cgi.FieldStorage()
     if (form.has_key('email')

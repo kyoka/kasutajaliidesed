@@ -46,9 +46,9 @@
                         setCookie("user_id", $.trim(data['id']));
                     }
                     if (data['email']) {
-                        setCookie("user_id", $.trim(data['email']));
+                        setCookie("email", $.trim(data['email']));
                     }
-                    window.location('/home.html');
+                    window.location = "/home.html";
                 }
             });
             return false;
