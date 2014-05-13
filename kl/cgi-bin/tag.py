@@ -4,9 +4,6 @@ import json
 import sqlite3 as sqlite
 
 databasefile = 'mydb.db'
-import pydevd
-
-pydevd.settrace('localhost', port=12345, stdoutToServer=True, stderrToServer=True, suspend=False)
 print 'Content-type: text/plain'
 print
 try:
@@ -28,5 +25,5 @@ try:
         res = {'data': cur.fetchall()}
         print json.dumps(res)
 except Exception, e:
-#print e # uncommment for debugging
+    #print e # uncommment for debugging
     print "NOK"

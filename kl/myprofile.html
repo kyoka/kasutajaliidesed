@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.css"
+          type="text/css"/>
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet"
           href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
@@ -59,31 +60,33 @@
         <div class="col-md-1">
         </div>
         <div class="col-md-3">
-            <h4 id="nameHead"><b>Herp Herpson</b></h4>
+            <h4 id="nameHead"><b></b></h4>
             </br>
             <table>
                 <tr>
-                    <td><img class="foto" src="img/pic3.png"></td>
+                    <td><img id="userPhoto" class="foto" src="">
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <table>
+                            <br/>
                             <tr>
                                 <td><p class="textColor">Sex</p></td>
                                 <td>&nbsp</td>
-                                <td><p id="userSex">&nbsp;Male</p></td>
+                                <td><p id="userSex"></p></td>
                             </tr>
 
                             <tr>
                                 <td><p class="textColor">Birth date</p></td>
                                 <td>&nbsp</td>
-                                <td><p id="userAge">&nbsp;01.01.90</p></td>
+                                <td><p id="userAge"></p></td>
                             </tr>
 
                             <tr>
                                 <td><p class="textColor">Aadress</p></td>
                                 <td>&nbsp</td>
-                                <td><p id="userAadress">&nbsp;middle of nowhere 1</p></td>
+                                <td><p id="userAadress"></p></td>
                             </tr>
                         </table>
                     </td>
@@ -91,7 +94,8 @@
             </table>
             </br>
             <div id="expandpanel">
-                <h4 data-toggle="collapse" data-parent="#accordion" href="#user_complaints_div"><b class="myComp">My
+                <h4 data-toggle="collapse" data-parent="#accordion"
+                    href="#user_complaints_div"><b class="myComp">My
                     Complaints</b></h4>
             </div>
             <div id="user_complaints_div" class="collapse">
@@ -117,32 +121,38 @@
                 <div id="expandpanel2">
                     <table class="compTable" cellspacing="0">
                         <tr>
-                            <td class="compTableTd"><p class="textColor">Complaint Header</p></td>
+                            <td class="compTableTd"><p class="textColor">
+                                Complaint Header</p></td>
                             <td><p>&nbsp;</p></td>
                             <td><p id="compHead"></p></td>
                         </tr>
                         <tr>
-                            <td class="compTableTd"><p class="textColor">Type of complaint</p></td>
+                            <td class="compTableTd"><p class="textColor">Type
+                                of complaint</p></td>
                             <td><p>&nbsp;</p></td>
                             <td><p id="compTag"></p></td>
                         </tr>
                         <tr>
-                            <td class="compTableTd"><p class="textColor">Date/Time</p></td>
+                            <td class="compTableTd"><p class="textColor">
+                                Date/Time</p></td>
                             <td><p>&nbsp;</p></td>
                             <td><p id="compDate"></p></td>
                         </tr>
                         <tr>
-                            <td class="compTableTd"><p class="textColor">Aadress</p></td>
+                            <td class="compTableTd"><p class="textColor">
+                                Aadress</p></td>
                             <td>&nbsp;</td>
                             <td><p id="compAadress"></p></td>
                         </tr>
                         <tr>
-                            <td class="compTableTd"><p class="textColor">Details</p></td>
+                            <td class="compTableTd"><p class="textColor">
+                                Details</p></td>
                             <td><p>&nbsp;</p></td>
                             <td><p id="compDet"></p></td>
                         </tr>
                         <tr>
-                            <td class="compTableTd"><p class="textColor">Images</p></td>
+                            <td class="compTableTd"><p class="textColor">
+                                Images</p></td>
                             <td><p>&nbsp;</p></td>
                             <td>
                                 <div id="compImg"></div>
@@ -173,14 +183,24 @@
 <script type="text/javascript">
     var user = {};
 
-    $(document).ready(function () {
+    $(document).ready(function() {
 
-        $.post('/cgi-bin/user.py', {'cmd': 'profile', 'id': getCookie('user_id')}, function (result) {
+        $.getJSON('/cgi-bin/user.py', {'cmd': 'profile', 'id': getCookie('user_id')}, function(result) {
+            window.test = result;
+            result = result.data;
             user.name = result['name'];
             user.birthdate = result['birthdate'];
             user.address = result['address'];
             user.sex = result['sex'];
             user.image = result['file_name'];
+            $('#userAadress').html(result['address']);
+            $('#userAge').html(result['birthdate']);
+            $('#userSex').html(result['sex']);
+
+            $('#userPhoto').attr('src', '/img/' + result['file_name']);
+            var name = '<b>' + result['name'] + '</b>';
+            $('#nameHead').html(name);
+
         });
 
         $('#complaints-table').dataTable({
@@ -195,7 +215,7 @@
             "columns": [
                 {"data": "time"},
                 {"data": "title"},
-                {"data": "id", "render": function (data, type, row) {
+                {"data": "id", "render": function(data, type, row) {
                     return"<span onclick='glyphClickEvent(this, " + data + ");' class=\"glyphicon glyphicon-play\"></span>";
                 } }
             ]

@@ -8,7 +8,6 @@ databasefile = 'mydb.db'
 
 print 'Content-type: text/plain'
 print
-
 try:
     form = cgi.FieldStorage()
     if (form.has_key('email')
@@ -20,12 +19,13 @@ try:
         cur = con.cursor()
         cur.execute(query)
         user = cur.fetchone()
-        user_id = user[0]
-        is_admin = user[1]
-        if not user_id:
+        if not user:
             print json.dumps({'error': 'Incorrect email or password'})
         else:
-            print json.dumps({'id': user_id, 'email': form['email'].value, 'is_admin': is_admin})
+            user_id = user[0]
+            is_admin = user[1]
+            print json.dumps({'id': user_id, 'email': form['email'].value,
+                              'is_admin': is_admin})
     else:
         print json.dumps({'error': 'Fill both email and password fields'})
 

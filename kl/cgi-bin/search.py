@@ -8,6 +8,9 @@ fields = ['title', 'tag', 'description', 'name']
 
 databasefile = 'mydb.db'
 
+# import pydevd
+# pydevd.settrace('localhost', port=12345, stdoutToServer=True, stderrToServer=True)
+
 print 'Content-type: text/plain'
 print
 try:

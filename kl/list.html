@@ -10,7 +10,8 @@
 
 
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.css"
+          type="text/css"/>
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet"
           href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
@@ -46,16 +47,21 @@
     <div class="col-md-8">
         <form id="search-form" class="navbar-form" role="search">
             <div class="form-group">
-                <input class="form-control search-field" name="name" type="text" placeholder="Search for...">
-                <input class="form-control search-field" style="display: none;" name="title" type="text"
+                <input class="form-control search-field" name="name"
+                       type="text" placeholder="Search for...">
+                <input class="form-control search-field" style="display: none;"
+                       name="title" type="text"
                        placeholder="by title">
-                <input class="form-control search-field" style="display: none;" name="description" type="text"
+                <input class="form-control search-field" style="display: none;"
+                       name="description" type="text"
                        placeholder="by details">
-                <input class="form-control search-field" style="display: none;" name="tag" type="text"
-                       placeholder="by tag">
+                <!--<input class="form-control search-field" style="display: none;"-->
+                <!--name="tag" type="text"-->
+                <!--placeholder="by tag">-->
                 <input class="btn-success" type="submit" value="Search"/>
 
-                <p style="font-size:10px; margin-top:1px; margin-bottom:1px;">&nbsp;&nbsp;&nbsp;
+                <p style="font-size:10px; margin-top:1px; margin-bottom:1px;">
+                    &nbsp;&nbsp;&nbsp;
                     <a id="advanced-search-link" class="navlink" href="#">
                         <b>switch to
                             <span class="adv-search-text">advanced search</span>
@@ -93,32 +99,38 @@
         <div id="expandpanel2">
             <table class="compTable" cellspacing="0">
                 <tr>
-                    <td class="compTableTd"><p class="textColor">Complaint Header</p></td>
+                    <td class="compTableTd"><p class="textColor">Complaint
+                        Header</p></td>
                     <td><p>&nbsp;</p></td>
                     <td><p id="compHead"></p></td>
                 </tr>
                 <tr>
-                    <td class="compTableTd"><p class="textColor">Type of complaint</p></td>
+                    <td class="compTableTd"><p class="textColor">Type of
+                        complaint</p></td>
                     <td><p>&nbsp;</p></td>
                     <td><p id="compTag"></p></td>
                 </tr>
                 <tr>
-                    <td class="compTableTd"><p class="textColor">Date/Time</p></td>
+                    <td class="compTableTd"><p class="textColor">Date/Time</p>
+                    </td>
                     <td><p>&nbsp;</p></td>
                     <td><p id="compDate"></p></td>
                 </tr>
                 <tr>
-                    <td class="compTableTd"><p class="textColor">Aadress</p></td>
+                    <td class="compTableTd"><p class="textColor">Aadress</p>
+                    </td>
                     <td>&nbsp;</td>
                     <td><p id="compAadress"></p></td>
                 </tr>
                 <tr>
-                    <td class="compTableTd"><p class="textColor">Details</p></td>
+                    <td class="compTableTd"><p class="textColor">Details</p>
+                    </td>
                     <td><p>&nbsp;</p></td>
                     <td><p id="compDet"></p></td>
                 </tr>
                 <tr>
-                    <td class="compTableTd"><p class="textColor">Images</p></td>
+                    <td class="compTableTd"><p class="textColor">Images</p>
+                    </td>
                     <td><p>&nbsp;</p></td>
                     <td>
                         <div id="compImg"></div>
@@ -155,29 +167,56 @@
                 {"data": "title"},
                 {"data": "tag"},
                 {"data": "location"},
-                {"data": "id", "render": function (data, type, row) {
+                {"data": "id", "render": function(data, type, row) {
                     return"<span onclick='glyphClickEvent(this, " + data + ");' class=\"glyphicon glyphicon-play\"></span>";
                 } }
             ]
         });
     }
     var oTable;
-    $(document).ready(function () {
+    $(document).ready(function() {
+        $(document).ready(function() {
+            $('input[name=user]').val(getCookie('user_id'));
+            $.getJSON('/cgi-bin/tag.py', {'cmd': 'get'}, function(data) {
+                window.data = data.data;
+                var select = $('<select name="tag"></select>');
+                $.each(data.data, function(i, v) {
+                    var opt = $('<option value="' + v + '">' + v + '</option>');
+                    opt.appendTo(select);
+                });
+                select.addClass('form-control').addClass('search-field');
+                select.css('display', 'none');
+                select.attr('placeholder', 'by tag');
+                select.insertBefore($('input.btn-success'));
+            });
+
+        });
+//         <input class="form-control search-field" style="display: none;"
+//                       name="tag" type="text"
+//                       placeholder="by tag">
+
+
         oTable = initTable();
 
         var simple_search = true;
 
-        $('#search-form').submit(function () {
+        $('#search-form').submit(function() {
             var url = '';
             var q = '';
-            if (simple_search) {
+            if(simple_search) {
                 q = $('input[name=name]').val();
                 url = '/cgi-bin/search.py?type=simple&q=' + q;
             } else {
                 var fields = ['title', 'tag', 'description', 'name'];
                 var arr = [];
-                for (var i in fields) {
-                    arr.push(fields[i] + '=' + $('input[name=' + fields[i] + ']').val());
+                for(var i in fields) {
+                    console.log(i, $('select').val());
+                    if(fields[i] == 'tag') {
+                        arr.push(fields[i] + '=' + $('select').val());
+                    } else {
+                        arr.push(fields[i] + '=' + $('input[name=' + fields[i] + ']').val());
+                    }
+
                 }
                 url = '/cgi-bin/search.py?type=adv&' + arr.join('&');
             }
@@ -187,18 +226,20 @@
             return false;
         });
 
-        $('#advanced-search-link').click(function () {
+        $('#advanced-search-link').click(function() {
             var text_span = $('span.adv-search-text');
-            if (!text_span.hasClass('enabled')) {
+            if(!text_span.hasClass('enabled')) {
                 text_span.text('simple search');
                 text_span.addClass('enabled');
                 $('input[name=name]').attr('placeholder', 'by citizen');
                 $('input[name!=name][type=text]').fadeIn();
+                $('select').fadeIn();
             } else {
                 text_span.text('advanced search');
                 text_span.removeClass('enabled');
                 $('input[name=name]').attr('placeholder', 'Search for...');
                 $('input[name!=name][type=text]').fadeOut();
+                $('select').fadeOut();
             }
             simple_search = !simple_search;
             return false;

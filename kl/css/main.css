@@ -9,8 +9,12 @@
     border-radius: 15px;
 }
 
-#complaints-table thead th {
-    background: #B4F200;
+#complaints-table thead th.sorting_desc {
+    background: #B4F200 url("/img/sort_desc.png") no-repeat right center;
+}
+
+#complaints-table thead th.sorting_asc {
+    background: #B4F200 url("/img/sort_asc.png") no-repeat right center;
 }
 
 #complaints-table th {

@@ -9,7 +9,7 @@ function checkCookie() {
 
     var username = getCookie("username");
 
-    if (username != null && username != "" && username == "admin@admin.com") {
+    if(username != null && username != "" && username == "admin@admin.com") {
         return true;
     }
     return false;
@@ -17,11 +17,11 @@ function checkCookie() {
 
 function getCookie(c_name) {
     var i, x, y, ARRcookies = document.cookie.split(";");
-    for (i = 0; i < ARRcookies.length; i++) {
+    for(i = 0; i < ARRcookies.length; i++) {
         x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
         y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
         x = x.replace(/^\s+|\s+$/g, "");
-        if (x == c_name) {
+        if(x == c_name) {
             return unescape(y);
         }
     }
@@ -31,15 +31,18 @@ function newComplaint() {
 
 }
 
-$('#newComp').click(function () {
+$('#newComp').click(function() {
     newComplaint();
 });
 
-$(document).ready(function () {
-    if (getCookie('is_admin')) {
+$(document).ready(function() {
+    $('')
+
+
+    if(getCookie('is_admin')) {
         var a = $('<a></a>', {
             'href': '/newTag.html'
-        }).addClass('navlink').text('Add Tag');
+        }).addClass('navlink').html('<b>Add Tag</b>');
         var li = $('<li></li>');
         $('#left-header').append(li.append(a));
     }
@@ -81,7 +84,7 @@ $(document).ready(function () {
 });
 
 function renderComplaint(complaint_id) {
-    $.getJSON("/cgi-bin/complaint.py?c=id&v=" + complaint_id, function (data) {
+    $.getJSON("/cgi-bin/complaint.py?c=id&v=" + complaint_id, function(data) {
         data = data.data[0];
         window.data = data;
         $('#compHead').text(data.title);
@@ -90,8 +93,8 @@ function renderComplaint(complaint_id) {
         $('#compTag').text(data.tag);
         $('#compAadress').text(data.location);
         $('#compImg').empty();
-        if (data.images) {
-            $(data.images.split(',')).each(function (index, value) {
+        if(data.images) {
+            $(data.images.split(',')).each(function(index, value) {
                 var div = $('<div></div>').addClass('col-md-4');
                 $('<img>', {
                     src: '/img/' + value,
@@ -112,13 +115,13 @@ function renderComplaint(complaint_id) {
 function glyphClickEvent(glyph, complaint_id) {
     var glyph = $(glyph);
     var complain_div = $('#user_complaints_full');
-    if (glyph.hasClass('active-glyph')) {
+    if(glyph.hasClass('active-glyph')) {
         glyph.removeClass('active-glyph');
         complain_div.slideUp();
     } else {
         $('.active-glyph').removeClass('active-glyph');
         glyph.addClass('active-glyph');
-        complain_div.slideUp(function () {
+        complain_div.slideUp(function() {
             renderComplaint(complaint_id);
         });
     }

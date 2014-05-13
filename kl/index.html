@@ -7,7 +7,8 @@
     <meta name="description" content="iDELO"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/bootstrap-responsive.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/bootstrap-responsive.css"
+          type="text/css"/>
     <link href="/css/main.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -18,9 +19,13 @@
 <div id="log" class="container">
     <!--$r-->
     <form id="loginform" role="form">
-        <input id="signin-email" type="text" name="email" placeholder="Email" class="form-control"/>
-        <input id="signin-password" type="password" name="password" placeholder="Password" class="form-control"/>
-        <button id="signin-submit" class="butn" value="log" type="submit">Sign in</button>
+        <input id="signin-email" type="text" name="email" placeholder="Email"
+               class="form-control"/>
+        <input id="signin-password" type="password" name="password"
+               placeholder="Password" class="form-control"/>
+        <button id="signin-submit" class="butn" value="log" type="submit">Sign
+            in
+        </button>
         <a href="registration.html">
             <button type="button" class="butn">Sign up</button>
         </a>
@@ -31,8 +36,8 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/main.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('#signin-submit').click(function () {
+    $(document).ready(function() {
+        $('#signin-submit').click(function() {
             deleteCookie('id');
             deleteCookie('email');
             deleteCookie('is_admin');
@@ -40,19 +45,20 @@
             var post_data = {
                 'email': $('#signin-email').val(),
                 'password': $('#signin-password').val()};
-            $.getJSON("/cgi-bin/login.py", post_data, function (data) {
-                if (data['error']) {
+            $.getJSON("/cgi-bin/login.py", post_data, function(data) {
+                console.log(data);
+                if(data['error']) {
                     $('#signin-email').before($('<span>', {
                         text: data['error']
                     })).addClass('error');
                 } else {
-                    if (data['id']) {
+                    if(data['id']) {
                         setCookie("user_id", $.trim(data['id']));
                     }
-                    if (data['email']) {
+                    if(data['email']) {
                         setCookie("email", $.trim(data['email']));
                     }
-                    if (data['is_admin']) {
+                    if(data['is_admin']) {
                         setCookie("is_admin", $.trim(data['is_admin']));
                     }
                     window.location = "/home.html";
